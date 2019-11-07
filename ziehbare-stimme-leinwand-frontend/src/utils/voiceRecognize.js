@@ -36,7 +36,6 @@ export async function voiceRecognize() {
       // - result.spectrogram contains the spectrogram of the recognized word.
     },
     {
-      includeSpectrogram: true,
       probabilityThreshold: 0.75
     }
   );
