@@ -7,17 +7,27 @@
 }
 
 .App {
-  background-color: #282c34;
+  position: absolute;
+  z-index: 3;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(172, 21, 21);
   font-size: 3rem;
 }
 
 .App-link {
   color: #09d3ac;
+}
+
+#text {
+  position: absolute;
+  z-index: 1;
+}
+
+canvas {
+  background: white;
 }
