@@ -20,7 +20,14 @@ const TodoContainer = props => {
       ));
   };
 
-  return <div>{renderTodos()}</div>;
+  return (
+    <div>
+      <input placeholder="title" />
+      <input placeholder="content" />
+      <button>add todo</button>
+      {renderTodos()}
+    </div>
+  );
 };
 
 export default TodoContainer;

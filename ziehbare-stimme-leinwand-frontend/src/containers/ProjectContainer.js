@@ -65,9 +65,6 @@ export class ProjectContainer extends Component {
         {this.renderProjects()}
         <input placeholder="add title" />
         <button>add project</button>
-        <input placeholder="title" />
-        <input placeholder="content" />
-        <button>add todo</button>
       </div>
     );
   }
