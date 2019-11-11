@@ -48,6 +48,25 @@ export class ProjectContainer extends Component {
     return project.id === this.props.currentProject.id;
   };
 
+  handleForm = e => {
+    e.preventDefault();
+    const mainBody = {
+      title: e.target.title.value
+    };
+    const content = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(mainBody)
+    };
+    fetch(PROJECTS_PATH, content)
+      .then(res => res.json())
+      .then(this.props.addProject);
+    e.target.title.value = "";
+  };
+
   renderProjects() {
     return this.props.projects.map(project => (
       <Project 
@@ -57,15 +76,20 @@ export class ProjectContainer extends Component {
         isSelected={() => this.isSelectedProject(project)}
         switchCurrentProject={() => this.props.setCurrentProject(project)}
         deleteProject={() => this.deleteProjectById(project.id)}
-      />
+      /> 
     ));
   }
+
   render() {
     return (
       <div className="tabbed skin-turquoise round" id="skinable">
         {this.renderProjects()}
         <input placeholder="add title" />
         <button>add project</button>
+        <form onSubmit={this.handleForm}>
+          <input name="title" placeholder="add project" />
+          <input value="add project" type="submit" />
+        </form>
       </div>
     );
   }
