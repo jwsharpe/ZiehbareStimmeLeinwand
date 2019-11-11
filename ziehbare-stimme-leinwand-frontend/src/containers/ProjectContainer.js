@@ -50,7 +50,8 @@ export class ProjectContainer extends Component {
 
   renderProjects() {
     return this.props.projects.map(project => (
-      <Project
+      <Project 
+        
         key={project.id}
         {...project}
         isSelected={() => this.isSelectedProject(project)}
@@ -61,13 +62,10 @@ export class ProjectContainer extends Component {
   }
   render() {
     return (
-      <div className="project-container">
+      <div className="tabbed skin-turquoise round" id="skinable">
         {this.renderProjects()}
         <input placeholder="add title" />
         <button>add project</button>
-        <input placeholder="title" />
-        <input placeholder="content" />
-        <button>add todo</button>
       </div>
     );
   }

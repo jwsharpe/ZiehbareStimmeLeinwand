@@ -14,10 +14,9 @@ export class Project extends Component {
 
   render() {
     return (
-      <div onClick={this.handleclick}>
-        <p>{this.props.title}</p>
-        <button onClick={this.handleDelete}>delete</button>
-      </div>
+      <ul className="active" onClick={this.handleclick}>
+        <li id="text" >{this.props.title} <span class="deleteTab" onClick={this.handleDelete}> X </span> </li>
+      </ul>
     );
   }
 }
