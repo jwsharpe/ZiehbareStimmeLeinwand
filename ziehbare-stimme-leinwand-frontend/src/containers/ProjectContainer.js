@@ -5,7 +5,6 @@ const URL = "http://localhost:3000";
 
 const PROJECTS_PATH = URL + "/projects";
 const PROJECT_PATH = id => PROJECTS_PATH + "/" + id;
-
 export class ProjectContainer extends Component {
   //requires state of 'text'
   //voiceRecognize = voiceRecognize.bind(this);
