@@ -8,11 +8,15 @@ export class Project extends Component {
       this.props.switchCurrentProject();
     }
   };
+  handleDelete = () => {
+    this.props.deleteProject();
+  };
 
   render() {
     return (
       <div onClick={this.handleclick}>
         <h3>{this.props.title}</h3>
+        <button onClick={this.handleDelete}>delete</button>
       </div>
     );
   }

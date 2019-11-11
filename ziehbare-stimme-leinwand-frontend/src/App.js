@@ -11,7 +11,7 @@ const TODO_PATH = id => TODOS_PATH + "/" + id;
 
 class App extends React.Component {
   state = {
-    text: "5",
+    text: "say digits",
     projects: [],
     currentProject: {}
   };
@@ -22,9 +22,9 @@ class App extends React.Component {
   }
 
   setTodos = todos => {
-    this.setState({ todos: todos });
+    this.state.currentProject.todos = todos;
+    this.setCurrentProject(this.state.currentProject);
   };
-
   setProjects = projects => {
     this.setState({ projects: projects });
   };
@@ -70,7 +70,8 @@ class App extends React.Component {
           setProjects={this.setProjects}
         />
         <TodoContainer
-          todos={currentProject.todos}
+          currentProject={currentProject}
+          setTodos={this.setTodos}
           deleteTodoById={this.deleteTodoById}
         />
       </div>

@@ -20,6 +20,30 @@ export class ProjectContainer extends Component {
     // this.voiceRecognize();
   }
 
+  findProjectById = id => {
+    return this.props.projects.find(x => x.id === id);
+  };
+
+  deleteProjectById = id => {
+    const foundProject = this.findProjectById(id);
+
+    const content = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    };
+    fetch(PROJECT_PATH(id), content).then(() => {
+      const newList = [...this.props.projects].filter(project => {
+        return project.id !== foundProject.id;
+      });
+
+      this.props.setProjects(newList);
+      this.props.setCurrentProject(newList[0]);
+    });
+  };
+
   isSelectedProject = project => {
     return project.id === this.props.currentProject.id;
   };
@@ -31,6 +55,7 @@ export class ProjectContainer extends Component {
         {...project}
         isSelected={() => this.isSelectedProject(project)}
         switchCurrentProject={() => this.props.setCurrentProject(project)}
+        deleteProject={() => this.deleteProjectById(project.id)}
       />
     ));
   }
