@@ -39,7 +39,7 @@ class App extends React.Component {
   };
 
   addTodo = todo => {
-    if (this.state.todos) {
+    if (this.state.todos && this.state.length.todos) {
       this.state.currentProject.todos = [
         ...this.state.currentProject.todos,
         todo
