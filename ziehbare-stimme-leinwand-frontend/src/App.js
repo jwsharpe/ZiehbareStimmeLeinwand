@@ -29,6 +29,27 @@ class App extends React.Component {
     this.setState({ projects: projects });
   };
 
+  addProject = project => {
+    this.setState(
+      prev => ({
+        projects: [...prev.projects, project]
+      }),
+      () => this.setCurrentProject(project)
+    );
+  };
+
+  addTodo = todo => {
+    if (this.state.todos) {
+      this.state.currentProject.todos = [
+        ...this.state.currentProject.todos,
+        todo
+      ];
+    } else {
+      this.state.currentProject.todos = [todo];
+    }
+    this.setState({ currentProject: this.state.currentProject });
+  };
+
   setCurrentProject = project => {
     this.setState({ currentProject: project });
   };
@@ -68,11 +89,13 @@ class App extends React.Component {
           currentProject={currentProject}
           setCurrentProject={this.setCurrentProject}
           setProjects={this.setProjects}
+          addProject={this.addProject}
         />
         <TodoContainer
           currentProject={currentProject}
           setTodos={this.setTodos}
           deleteTodoById={this.deleteTodoById}
+          addTodo={this.addTodo}
         />
       </div>
     );

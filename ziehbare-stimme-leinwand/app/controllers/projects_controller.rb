@@ -8,7 +8,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    render json: Project.create(params[:todo])
+    proj = Project.create({ title: params[:title] })
+    render json: proj
   end
 
   def destroy

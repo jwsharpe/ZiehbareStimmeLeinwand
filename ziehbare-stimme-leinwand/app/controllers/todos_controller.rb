@@ -8,7 +8,8 @@ class TodosController < ApplicationController
   end
 
   def create
-    render json: Todo.create(params[:todo])
+    todo = Todo.create({ title: params[:title], content: params[:content], project_id: params[:projectId] })
+    render json: todo
   end
 
   def destroy

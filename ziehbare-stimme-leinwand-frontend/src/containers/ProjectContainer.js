@@ -48,6 +48,25 @@ export class ProjectContainer extends Component {
     return project.id === this.props.currentProject.id;
   };
 
+  handleForm = e => {
+    e.preventDefault();
+    const mainBody = {
+      title: e.target.title.value
+    };
+    const content = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(mainBody)
+    };
+    fetch(PROJECTS_PATH, content)
+      .then(res => res.json())
+      .then(this.props.addProject);
+    e.target.title.value = "";
+  };
+
   renderProjects() {
     return this.props.projects.map(project => (
       <Project
@@ -59,12 +78,15 @@ export class ProjectContainer extends Component {
       />
     ));
   }
+
   render() {
     return (
       <div className="project-container">
         {this.renderProjects()}
-        <input placeholder="add title" />
-        <button>add project</button>
+        <form onSubmit={this.handleForm}>
+          <input name="title" placeholder="add project" />
+          <input value="add project" type="submit" />
+        </form>
       </div>
     );
   }
