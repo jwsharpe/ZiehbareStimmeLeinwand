@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    render json: Project.all
+    render json: Project.all, :include => :todos
   end
 
   def show

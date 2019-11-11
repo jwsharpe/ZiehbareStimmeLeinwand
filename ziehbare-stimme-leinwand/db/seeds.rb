@@ -35,7 +35,10 @@ Todo.create({
 
 Todo.create({
   id: 3,
-  title: "epstein",
+  title: "title three",
   project_id: 1,
-  content: "did not kill himself.",
+  content: "threefa.",
 })
+
+
+

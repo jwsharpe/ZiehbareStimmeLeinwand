@@ -12,7 +12,7 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    Todo.find_by_id(params[:id]).destroy
+    Todo.find_by_id(params[:id]).delete
   end
 
   def update
