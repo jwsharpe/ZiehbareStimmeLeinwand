@@ -82,16 +82,24 @@ export class ProjectContainer extends Component {
     ));
   }
 
+  addProjectTab() {
+    return(
+    <div>
+      <input placeholder="add title" />
+        <button>add project</button>
+          <form onSubmit={this.handleForm}>
+          <input name="title" placeholder="add project" />
+          <input value="add project" type="submit" />
+        </form>
+    </div>
+    )
+  }
+
   render() {
     return (
       <div className="tabbed skin-turquoise round" id="skinable">
         {this.renderProjects()}
-        <input placeholder="add title" />
-        <button>add project</button>
-        <form onSubmit={this.handleForm}>
-          <input name="title" placeholder="add project" />
-          <input value="add project" type="submit" />
-        </form>
+        {this.addProjectTab()}
       </div>
     );
   }
