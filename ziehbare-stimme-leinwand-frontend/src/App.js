@@ -1,42 +1,78 @@
 import React from "react";
 import "./App.css";
 import { voiceRecognize } from "./utils/voiceRecognize.js";
+import ProjectContainer from "./containers/ProjectContainer";
+import TodoContainer from "./containers/TodoContainer";
 
 const URL = "http://localhost:3000";
 
 const TODOS_PATH = URL + "/todos";
 const TODO_PATH = id => TODOS_PATH + "/" + id;
 
-const PROJECTS_PATH = URL + "/projects";
-const PROJECT_PATH = id => PROJECTS_PATH + "/" + id;
-
 class App extends React.Component {
   state = {
-    text: "say digits",
-    projects: []
+    text: "5",
+    projects: [],
+    currentProject: {}
   };
 
-  //requires state of 'text'
   voiceRecognize = voiceRecognize.bind(this);
-
   componentDidMount() {
-    fetch(PROJECTS_PATH)
-      .then(e => e.json())
-      .then(projects => this.setState({ projects: projects }));
-    // this.voiceRecognize();
+    this.voiceRecognize();
   }
 
-  renderText = () => {
-    if (this.state.text === "go") return <p style={{ color: "green" }}>go</p>;
-    if (this.state.text === "stop") return <p style={{ color: "red" }}>stop</p>;
-    return <p>{this.state.text}</p>;
+  setTodos = todos => {
+    this.setState({ todos: todos });
   };
 
+  setProjects = projects => {
+    this.setState({ projects: projects });
+  };
+
+  setCurrentProject = project => {
+    this.setState({ currentProject: project });
+  };
+
+  findTodoById = id => {
+    return this.state.currentProject.todos.find(x => x.id === id);
+  };
+
+  deleteTodoById = id => {
+    const foundTodo = this.findTodoById(id);
+
+    const content = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    };
+    fetch(TODO_PATH(id), content).then(() => {
+      const newList = [...this.state.currentProject.todos].filter(todo => {
+        return todo.id !== foundTodo.id;
+      });
+
+      this.state.currentProject.todos = newList;
+
+      this.setState({ currentProject: this.state.currentProject });
+    });
+  };
   render() {
-    console.log(this.state.projects);
+    const { currentProject, projects } = this.state;
+
     return (
       <div className="App">
-        {/* <TodoContainer todos={this.state.todos} /> */}
+        <h1>{this.state.text}</h1>
+        <ProjectContainer
+          projects={projects}
+          currentProject={currentProject}
+          setCurrentProject={this.setCurrentProject}
+          setProjects={this.setProjects}
+        />
+        <TodoContainer
+          todos={currentProject.todos}
+          deleteTodoById={this.deleteTodoById}
+        />
       </div>
     );
   }

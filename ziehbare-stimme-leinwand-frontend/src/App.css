@@ -21,3 +21,12 @@
 .App-link {
   color: #09d3ac;
 }
+
+.project-container {
+  display: flex;
+}
+
+.todo-item {
+  display: flex;
+  flex-direction: column;
+}
