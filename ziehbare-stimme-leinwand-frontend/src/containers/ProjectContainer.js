@@ -60,7 +60,16 @@ export class ProjectContainer extends Component {
     ));
   }
   render() {
-    return <div className="project-container">{this.renderProjects()}</div>;
+    return (
+      <div className="project-container">
+        {this.renderProjects()}
+        <input placeholder="add title" />
+        <button>add project</button>
+        <input placeholder="title" />
+        <input placeholder="content" />
+        <button>add todo</button>
+      </div>
+    );
   }
 }
 

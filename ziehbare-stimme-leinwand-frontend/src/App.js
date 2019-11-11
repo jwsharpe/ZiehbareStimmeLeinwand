@@ -16,10 +16,10 @@ class App extends React.Component {
     currentProject: {}
   };
 
-  voiceRecognize = voiceRecognize.bind(this);
-  componentDidMount() {
-    this.voiceRecognize();
-  }
+  // voiceRecognize = voiceRecognize.bind(this);
+  // componentDidMount() {
+  //   this.voiceRecognize();
+  // }
 
   setTodos = todos => {
     this.state.currentProject.todos = todos;
@@ -62,7 +62,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <h1>{this.state.text}</h1>
+        {/* <h1>{this.state.text}</h1> */}
         <ProjectContainer
           projects={projects}
           currentProject={currentProject}

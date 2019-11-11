@@ -44,8 +44,8 @@ export class Todo extends Component {
           </form>
         ) : (
           <>
-            <h5>{this.props.title}</h5>
-            <h5>{this.props.content}</h5>
+            <p>{this.props.title}</p>
+            <p>{this.props.content}</p>
           </>
         )}
 

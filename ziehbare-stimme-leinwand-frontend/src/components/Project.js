@@ -15,7 +15,7 @@ export class Project extends Component {
   render() {
     return (
       <div onClick={this.handleclick}>
-        <h3>{this.props.title}</h3>
+        <p>{this.props.title}</p>
         <button onClick={this.handleDelete}>delete</button>
       </div>
     );
