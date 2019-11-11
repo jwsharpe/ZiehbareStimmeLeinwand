@@ -25,23 +25,25 @@ export class ProjectContainer extends Component {
   };
 
   deleteProjectById = id => {
-    const foundProject = this.findProjectById(id);
+    if (this.props.projects.length > 1) {
+      const foundProject = this.findProjectById(id);
 
-    const content = {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      }
-    };
-    fetch(PROJECT_PATH(id), content).then(() => {
-      const newList = [...this.props.projects].filter(project => {
-        return project.id !== foundProject.id;
+      const content = {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        }
+      };
+      fetch(PROJECT_PATH(id), content).then(() => {
+        const newList = [...this.props.projects].filter(project => {
+          return project.id !== foundProject.id;
+        });
+
+        this.props.setProjects(newList);
+        this.props.setCurrentProject(newList[0]);
       });
-
-      this.props.setProjects(newList);
-      this.props.setCurrentProject(newList[0]);
-    });
+    }
   };
 
   isSelectedProject = project => {
