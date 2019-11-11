@@ -83,23 +83,20 @@ class App extends React.Component {
 
     return (
       <div className="App">
-   
-        <div id="platform">
-          {/* <h1>{this.state.text}</h1> */}
-          <ProjectContainer
-            projects={projects}
-            currentProject={currentProject}
-            setCurrentProject={this.setCurrentProject}
-            setProjects={this.setProjects}
-            addProject={this.addProject}
-          />
-          <TodoContainer
-            currentProject={currentProject}
-            setTodos={this.setTodos}
-            deleteTodoById={this.deleteTodoById}
-            addTodo={this.addTodo}
-          />
-        </div>
+        {/* <h1>{this.state.text}</h1> */}
+        <ProjectContainer
+          projects={projects}
+          currentProject={currentProject}
+          setCurrentProject={this.setCurrentProject}
+          setProjects={this.setProjects}
+          addProject={this.addProject}
+        />
+        <TodoContainer
+          currentProject={currentProject}
+          setTodos={this.setTodos}
+          deleteTodoById={this.deleteTodoById}
+          addTodo={this.addTodo}
+        />
       </div>
     );
   }
