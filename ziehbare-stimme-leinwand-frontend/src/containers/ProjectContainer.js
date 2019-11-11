@@ -70,20 +70,23 @@ export class ProjectContainer extends Component {
 
   renderProjects() {
     return this.props.projects.map(project => (
-      <Project
+      <Project 
+        
         key={project.id}
         {...project}
         isSelected={() => this.isSelectedProject(project)}
         switchCurrentProject={() => this.props.setCurrentProject(project)}
         deleteProject={() => this.deleteProjectById(project.id)}
-      />
+      /> 
     ));
   }
 
   render() {
     return (
-      <div className="project-container">
+      <div className="tabbed skin-turquoise round" id="skinable">
         {this.renderProjects()}
+        <input placeholder="add title" />
+        <button>add project</button>
         <form onSubmit={this.handleForm}>
           <input name="title" placeholder="add project" />
           <input value="add project" type="submit" />
