@@ -1,8 +1,4 @@
 body {
-  background-color: #000;
-}
-
-body {
   background-color: rgba(47, 40, 139, 0.931);
 }
 
@@ -30,6 +26,8 @@ canvas {
 }
 
 .stage {
+  overflow: hidden;
+
   position: absolute;
   width: 100vw;
   height: 100vh;

@@ -114,7 +114,6 @@ export class ProjectContainer extends Component {
       <div className="tabbed skin-black-glass round">
         <ul>
           {this.addProjectTab()}
-
           {this.renderProjects()}
         </ul>
       </div>
