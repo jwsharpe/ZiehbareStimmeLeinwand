@@ -24,9 +24,9 @@ class Animation extends Component {
   };
 
   getRandomColor = () => {
-    let r = Math.floor(Math.random() * 255);
-    let g = Math.floor(Math.random() * 255);
-    let b = Math.floor(Math.random() * 255);
+    let r = Math.floor(Math.random() * 55 + 100);
+    let g = Math.floor(Math.random() * 55 + 100);
+    let b = Math.floor(Math.random() * 55 + 100);
     return `rgb(${r},${g},${b})`;
   };
 
@@ -43,51 +43,55 @@ class Animation extends Component {
   //     }
   // }
 
-  componentDidMount() {
-    let anim = new Konva.Animation(frame => {
-      let period = 1000;
-      this.circle.opacity((Math.sin(frame.time / period) + 1) / 2);
-    }, this.circle.getLayer());
+//   componentDidMount() {
+//     let anim = new Konva.Animation(frame => {
+//       let period = 1000;
+//       this.circle.opacity((Math.sin(frame.time / period) + 1) / 2);
+//     }, this.circle.getLayer());
 
-    anim.start();
+  getCircles = () => {
+    return [...Array(180)].map((ele, i) => (
+      <Circle
+        key={i}
+        x={Math.random() * window.innerWidth * 2 - window.innerWidth / 2}
+        y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2 }
+        radius={Math.floor(Math.random() * 300 + 50)}
+        fill={this.getRandomBlue()}
+        opacity={Math.random() * 0.7}
+        ref={node => {
+          this.circle = node;
+        }}
+      />
+    ));
+  };
+  componentDidMount() {
+    // console.log(this.circle.animation);
+
+    this.circle
+      .getLayer()
+      .getChildren()
+      .forEach(circle => {
+        const random = Math.random() * 6;
+        const anim = new Konva.Animation(frame => {
+          const period = 800;
+          circle.opacity(
+            (Math.sin(frame.time / period + random) + 1) / 1.5 + 0.5
+          );
+        }, circle.getLayer());
+        anim.start();
+      });
   }
 
   render() {
     return (
       <Stage
         className="stage"
-        width={window.innerWidth}
-        height={window.innerHeight}
+        x={-(window.innerWidth / 2)}
+        y={-(window.innerHeight / 2)}
+        width={window.innerWidth * 2}
+        height={window.innerHeight * 2}
       >
-        <Layer>
-          {[...Array(250)].map((_, i) => (
-            <Circle
-              key={i}
-              x={Math.random() * window.innerWidth + this.state.dx}
-              y={Math.random() * window.innerHeight + this.state.dx}
-              radius={Math.floor(Math.random() * 200)}
-              fill={this.getRandomBlue()}
-              opacity={Math.random() * 0.7}
-              
-              ref={node => {
-                this.circle = node;
-              }}
-            />
-          ))}
-          {[...Array(80)].map((_, i) => (
-            <Circle
-              key={i}
-              x={Math.random() * window.innerWidth + this.state.dx}
-              y={Math.random() * window.innerHeight + this.state.dx}
-              radius={Math.floor(Math.random() * 200)}
-              fill={this.getRandomWhite()}
-              opacity={Math.random() * 0.4}
-              ref={node => {
-                this.circle = node;
-              }}
-            />
-          ))}
-        </Layer>
+        <Layer>{this.getCircles()}</Layer>
       </Stage>
     );
   }
