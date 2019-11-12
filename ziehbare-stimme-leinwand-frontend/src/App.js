@@ -12,10 +12,11 @@ const TODO_PATH = id => TODOS_PATH + "/" + id;
 
 class App extends React.Component {
   state = {
-    text: "hi",
+    resultText: "",
     loaded: false,
     projects: [],
-    currentProject: {}
+    currentProject: {},
+    scale: 1.0
   };
 
   didLoad = () => {
@@ -31,7 +32,7 @@ class App extends React.Component {
 
   voiceRecognize = voiceRecognize.bind(this);
   componentDidMount() {
-    // this.voiceRecognize();
+    this.voiceRecognize();
   }
 
   setTodos = todos => {
