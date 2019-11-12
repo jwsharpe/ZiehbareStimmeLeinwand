@@ -44,6 +44,30 @@ export async function voiceRecognize() {
           }
         );
       }
+      if (this.state.resultText === "left") {
+        this.setState(
+          prev => ({ left: +prev.left - 50 }),
+          () => {
+            anime({
+              targets: ".App",
+              duration: 500,
+              translateX: this.state.left
+            });
+          }
+        );
+      }
+      if (this.state.resultText === "right") {
+        this.setState(
+          prev => ({ left: +prev.left + 50 }),
+          () => {
+            anime({
+              targets: ".App",
+              duration: 500,
+              translateX: this.state.left
+            });
+          }
+        );
+      }
     },
     {
       probabilityThreshold: 0.75

@@ -16,7 +16,8 @@ class App extends React.Component {
     loaded: false,
     projects: [],
     currentProject: {},
-    scale: 1.0
+    scale: 1.0,
+    left: 0
   };
 
   didLoad = () => {
