@@ -43,14 +43,16 @@ export class Todo extends Component {
             />
           </form>
         ) : (
-          <>
-            <p>{this.props.title}</p>
+          <div className="todo-content">
+            <h6>{this.props.title}</h6>
             <p>{this.props.content}</p>
-          </>
+          </div>
         )}
 
-        <button onClick={this.handleEdit}>e</button>
-        <button onClick={this.handleDelete}>x</button>
+        <div className="todo-action">
+          <button onClick={this.handleEdit}>e</button>
+          <button onClick={this.handleDelete}>x</button>
+        </div>
       </div>
     );
   }

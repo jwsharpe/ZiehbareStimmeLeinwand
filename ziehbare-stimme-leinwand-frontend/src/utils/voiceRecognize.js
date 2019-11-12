@@ -10,7 +10,9 @@ export async function voiceRecognize() {
   recognizer.listen(
     result => {
       let i = result.scores.indexOf(Math.max(...result.scores));
-
+      if (!this.state.loaded && labels[i] === "go") {
+        this.setState({ loaded: true });
+      }
       if (Math.max(...result.scores) > 0.95) {
         this.setState({ text: labels[i] });
       } else {

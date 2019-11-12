@@ -15,6 +15,7 @@ export class ProjectContainer extends Component {
       .then(projects => {
         this.props.setProjects(projects);
         this.props.setCurrentProject(projects[0]);
+        // this.props.didLoad();
       });
     // this.voiceRecognize();
   }

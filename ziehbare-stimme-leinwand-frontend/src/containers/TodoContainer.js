@@ -4,12 +4,27 @@ import Todo from "../components/Todo";
 const URL = "http://localhost:3000";
 
 const TODOS_PATH = URL + "/todos";
+const TODO_PATH = id => TODOS_PATH + "/" + id;
 
 const TodoContainer = props => {
   const updateTodo = todo => {
     const index = props.currentProject.todos.findIndex(e => e.id === todo.id);
     props.currentProject.todos[index] = todo;
     props.setTodos(props.currentProject.todos);
+
+    const mainBody = {
+      title: todo.title,
+      content: todo.content
+    };
+    const content = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify(mainBody)
+    };
+    fetch(TODO_PATH(todo.id), content);
   };
 
   const renderTodos = () => {
