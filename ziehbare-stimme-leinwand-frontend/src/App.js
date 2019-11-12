@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Animation from './components/Animation.js';
 import { voiceRecognize } from "./utils/voiceRecognize.js";
 import ProjectContainer from "./containers/ProjectContainer";
 import TodoContainer from "./containers/TodoContainer";
@@ -83,8 +84,10 @@ class App extends React.Component {
 
     return (
       <div className="App">
+      <Animation />
+        <div id="toDoList" >
         {/* <h1>{this.state.text}</h1> */}
-        <ProjectContainer
+        <ProjectContainer 
           projects={projects}
           currentProject={currentProject}
           setCurrentProject={this.setCurrentProject}
@@ -97,6 +100,7 @@ class App extends React.Component {
           deleteTodoById={this.deleteTodoById}
           addTodo={this.addTodo}
         />
+      </div>
       </div>
     );
   }

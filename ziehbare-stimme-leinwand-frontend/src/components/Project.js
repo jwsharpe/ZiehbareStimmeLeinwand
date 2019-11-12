@@ -4,7 +4,7 @@ import TodoContainer from "../containers/TodoContainer";
 
 export class Project extends Component {
   handleclick = () => {
-    if (!this.props.isSelected()) {
+    if (!this.props.isSelected) {
       this.props.switchCurrentProject();
     }
   };
@@ -12,11 +12,11 @@ export class Project extends Component {
     this.props.deleteProject();
   };
 
+
   render() {
     return (
-      <ul className="active" onClick={this.handleclick}>
-        <li id="text" >{this.props.title} <span class="deleteTab" onClick={this.handleDelete}> X </span> </li>
-      </ul>
+        <li  onClick={this.handleclick} className={this.props.isSelected ? "active": null} id="text" >{this.props.title} 
+  <span className="deleteTab" onClick={this.handleDelete}> X </span> </li>
     );
   }
 }
