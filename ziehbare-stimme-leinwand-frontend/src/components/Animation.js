@@ -18,7 +18,54 @@ class Animation extends Component {
     return `rgb( ${g}, ${r}, ${b})`;
   };
 
+  getRandomLightBlue = () => {
+    let r = Math.floor(Math.random() * 100 );
+    let g = Math.floor(Math.random() * 55 );
+    let b = Math.floor(Math.random() * 255 + 50);
+    return `rgb( ${g}, ${g}, ${b})`;
+  };
 
+  getRandomGreen = () => {
+    let r = Math.floor(Math.random() * 100 );
+    let g = Math.floor(Math.random() * 55 );
+    let b = Math.floor(Math.random() * 255 + 50);
+    return `rgb( ${g}, ${b}, ${r})`;
+  };
+
+  getRandomPink = () => {
+    let r = Math.floor(Math.random() * 100 );
+    let g = Math.floor(Math.random() * 55 );
+    let b = Math.floor(Math.random() * 255 + 50);
+    return `rgb( ${r}, ${g}, ${g})`;
+  };
+
+  getRandomRed = () => {
+    let r = Math.floor(Math.random() * 100 );
+    let g = Math.floor(Math.random() * 55 );
+    let b = Math.floor(Math.random() * 255 + 50);
+    return `rgb( ${b}, ${g}, ${g})`;
+  };
+
+  getRandomYellow = () => {
+    let r = Math.floor(Math.random() * 100 );
+    let g = Math.floor(Math.random() * 55 );
+    let b = Math.floor(Math.random() * 255 + 50);
+    return `rgb( ${b}, ${b}, ${g})`;
+  };
+
+  getRandomAqua = () => {
+    let r = Math.floor(Math.random() * 100 );
+    let g = Math.floor(Math.random() * 55 );
+    let b = Math.floor(Math.random() * 255 + 50);
+    return `rgb( ${g}, ${b}, ${b})`;
+  };
+
+  getRandomPurple = () => {
+    let r = (Math.random() * ((100 - 65) + 1)) + 65
+    let g = (Math.random() * ((45 - 35) + 1)) + 35
+    let b = (Math.random() * ((145 - 130) + 1)) + 130
+    return `rgb( ${r}, ${g}, ${b})`;
+  };
 
   getRandomColor = () => {
     let r = Math.floor(Math.random() * 55 + 15);
@@ -34,26 +81,50 @@ class Animation extends Component {
     return `rgb(${r},${g},${b})`;
   };
 
-  // setColor = () => {
-  //     if(this.props.currentProject === 1){
+  getRandomOrange = () => {
+    let r = (Math.random() * ((230 - 215) + 1)) + 215
+    let g = (Math.random() * ((180 - 165) + 1)) + 165
+    let b = (Math.random() * ((65 - 55) + 1)) + 55
+    return `rgb(${r},${g},${b})`;
+  };
 
-  //     }
-  // }
-
-  //   componentDidMount() {
-  //     let anim = new Konva.Animation(frame => {
-  //       let period = 1000;
-  //       this.circle.opacity((Math.sin(frame.time / period) + 1) / 2);
-  //     }, this.circle.getLayer());
+  //
 
   getCircles = () => {
+
+      let changeColorWithVoice
+
+        if (this.props.voiceCommand === "zero") {
+            changeColorWithVoice = this.getRandomGreen()
+        }else if (this.props.voiceCommand === "one") {
+            changeColorWithVoice = this.getRandomColor()
+        }else if (this.props.voiceCommand === "two") {
+            changeColorWithVoice = this.getRandomWhite()
+        }else if (this.props.voiceCommand === "three") {
+            changeColorWithVoice = this.getRandomRed()
+        }else if (this.props.voiceCommand === "four") {
+            changeColorWithVoice = this.getRandomPink()
+        }else if (this.props.voiceCommand === "five") {
+            changeColorWithVoice = this.getRandomYellow()
+        }else if (this.props.voiceCommand === "six") {
+            changeColorWithVoice = this.getRandomAqua()
+        }else if (this.props.voiceCommand === "seven") {
+            changeColorWithVoice = this.getRandomPurple()
+        }else if (this.props.voiceCommand === "eight") {
+            changeColorWithVoice = this.getRandomLightBlue()
+        }else if (this.props.voiceCommand === "nine") {
+            changeColorWithVoice = this.getRandomOrange()
+        }else  {
+            changeColorWithVoice = this.getRandomBlue()
+        }
+
     return [...Array(135)].map((ele, i) => (
       <Circle
         key={i}
         x={Math.random() * window.innerWidth * 2 - window.innerWidth / 2}
         y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2}
         radius={Math.floor(Math.random() * 200)}
-        fill={this.getRandomBlue()}
+        fill={changeColorWithVoice}
         // opacity={Math.random() * 0.1}
         ref={node => {
           this.circle = node;

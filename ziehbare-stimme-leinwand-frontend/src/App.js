@@ -20,6 +20,8 @@ class App extends React.Component {
     left: 0
   };
 
+ 
+
   didLoad = () => {
     this.setState({ loaded: true });
     anime({

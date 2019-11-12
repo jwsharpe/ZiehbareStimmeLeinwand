@@ -6,12 +6,31 @@ import * as serviceWorker from "./serviceWorker";
 import Animation from "./components/Animation.js";
 
 
-ReactDOM.render(
-  <>
-    <Animation />
 
-    <App />
-  </>,
+class Index extends React.Component {
+
+    state={
+        voiceCommand: ""
+    }
+
+    setVoiceCommand = (resultText) => {
+    this.setState({voiceCommand: resultText})
+    console.log(this.state.voiceCommand)
+  }
+
+    render() {
+        return (
+            <div id="root">
+                <Animation voiceCommand={this.state.voiceCommand} />
+                <App setVoiceCommand={this.setVoiceCommand} voiceCommand={this.state.voiceCommand} />
+            </div>
+        );
+    }
+}
+
+
+ReactDOM.render(
+  <Index />,
   document.getElementById("root")
 );
 
