@@ -9,10 +9,10 @@ export class ProjectContainer extends Component {
   //requires state of 'text'
   //voiceRecognize = voiceRecognize.bind(this);
 
-  state={
+  state = {
     active: false,
-    addProjectForm: false,
-  }
+    addProjectForm: false
+  };
 
   componentDidMount() {
     fetch(PROJECTS_PATH)
@@ -76,46 +76,46 @@ export class ProjectContainer extends Component {
 
   renderProjects() {
     return this.props.projects.map(project => (
-      <Project 
+      <Project
         key={project.id}
         {...project}
         isSelected={this.isSelectedProject(project)}
         switchCurrentProject={() => this.props.setCurrentProject(project)}
         deleteProject={() => this.deleteProjectById(project.id)}
       />
-
-
     ));
   }
 
   displayForm = () => {
     this.setState({
       addProjectForm: !this.state.addProjectForm
-    })
-  }
+    });
+  };
 
   showForm = () => {
     return (
       <form onSubmit={this.handleForm}>
         <input id="addProject" name="title" placeholder="add project" />
-       
       </form>
-    )
-  }
-  
+    );
+  };
 
   addProjectTab() {
-    return(
-    <li onMouseEnter={this.displayForm} onMouseLeave={this.displayForm} > {this.state.addProjectForm ? this.showForm() : "+"} </li>
-    )
+    return (
+      <li onMouseEnter={this.displayForm} onMouseLeave={this.displayForm}>
+        {" "}
+        {this.state.addProjectForm ? this.showForm() : "+"}{" "}
+      </li>
+    );
   }
 
   render() {
     return (
-      <div className="tabbed skin-black-glass round" >
+      <div className="tabbed skin-black-glass round">
         <ul>
-        {this.renderProjects()}
-        {this.addProjectTab()}
+          {this.addProjectTab()}
+
+          {this.renderProjects()}
         </ul>
       </div>
     );
