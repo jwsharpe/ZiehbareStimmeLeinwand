@@ -33,10 +33,10 @@ class Animation extends Component {
   };
 
   getRandomPink = () => {
-    let r = Math.floor(Math.random() * 100 );
-    let g = Math.floor(Math.random() * 55 );
-    let b = Math.floor(Math.random() * 255 + 50);
-    return `rgb( ${r}, ${g}, ${g})`;
+    let r = (Math.random() * ((255 - 255) + 1)) + 255
+    let g = (Math.random() * ((135 - 124) + 1)) + 124
+    let b = (Math.random() * ((135 - 124) + 1)) + 124
+    return `rgb( ${255}, ${128}, ${128})`;
   };
 
   getRandomRed = () => {
@@ -50,14 +50,14 @@ class Animation extends Component {
     let r = Math.floor(Math.random() * 100 );
     let g = Math.floor(Math.random() * 55 );
     let b = Math.floor(Math.random() * 255 + 50);
-    return `rgb( ${b}, ${b}, ${g})`;
+    return `rgb( ${b}, ${b}, ${0})`;
   };
 
   getRandomAqua = () => {
     let r = Math.floor(Math.random() * 100 );
     let g = Math.floor(Math.random() * 55 );
     let b = Math.floor(Math.random() * 255 + 50);
-    return `rgb( ${g}, ${b}, ${b})`;
+    return `rgb( ${255}, ${255}, ${225})`;
   };
 
   getRandomPurple = () => {
@@ -85,7 +85,7 @@ class Animation extends Component {
     let r = (Math.random() * ((230 - 215) + 1)) + 215
     let g = (Math.random() * ((180 - 165) + 1)) + 165
     let b = (Math.random() * ((65 - 55) + 1)) + 55
-    return `rgb(${r},${g},${b})`;
+    return `rgb(${255},${155},${52})`;
   };
 
   //
@@ -115,7 +115,7 @@ class Animation extends Component {
         }else if (this.props.voiceCommand === "nine") {
             changeColorWithVoice = this.getRandomOrange()
         }else  {
-            changeColorWithVoice = this.getRandomBlue()
+            changeColorWithVoice = this.getRandomLightBlue()
         }
 
     return [...Array(135)].map((ele, i) => (
