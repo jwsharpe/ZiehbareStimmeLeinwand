@@ -1,11 +1,9 @@
 body {
   background-color: rgba(255, 255, 255, 0.555);
-
+  overflow: hidden;
 }
 
 #root {
-  height: 100vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -21,15 +19,14 @@ body {
   text-align: center;
 }
 
-
 .stage {
-  left:-30px;
-  right:-30px;
-  top:-30px;
-  bottom:-30px;
+  left: -30px;
+  right: -30px;
+  top: -30px;
+  bottom: -30px;
   filter: blur(30px);
 
-  overflow: scroll;
+  overflow: hidden;
   position: absolute;
 
   z-index: -1;
@@ -45,16 +42,53 @@ body {
 
 .todo-form {
   background: rgba(255, 255, 255, 0.301);
-  height: 30px;
   width: 80vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.todo-form input {
+  border: none;
+  font-size: 2rem;
+  background: #fff5;
+  margin: 8px;
+  color: #000f00;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.todo-form #title {
+  max-width: 12rem;
+}
+.todo-form #content {
+  flex-grow: 3;
+}
+
+.todo-form #submit {
+  background: #fff9;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.5rem;
+}
+
+.todo-form #submit:hover {
+  background: #fff6;
+}
+
+.todo-form #submit:active {
+  background: #fff3;
+}
+.todo-form #submit:focus {
+  outline: none;
+}
 .deleteTab {
   color: black;
 }
 
 .todo-item {
-  
   background: #ffffff71;
   filter: brightness(80%);
   flex-grow: 1;
@@ -68,12 +102,40 @@ body {
   margin: 1px;
 }
 
+.todo-item:hover {
+  background: #fff9;
+}
+
 .todo-action {
-  margin: 8px;
+  height: 100%;
   display: flex;
+  justify-content: space-evenly;
   flex-direction: column;
 }
 
+.todo-action button {
+  width: 25px;
+  height: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  margin: 8px;
+  cursor: pointer;
+}
+
+.todo-action button:hover {
+  background: red;
+  color: white;
+}
+
+.todo-action button:active {
+  background: darkred;
+  color: white;
+}
+
+.todo-action button:focus {
+  outline: none;
+}
 .todo-content {
   display: flex;
   margin: 8px;
@@ -82,12 +144,12 @@ body {
 }
 
 .todo-content h6 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   margin: 4px;
 }
 
 .todo-content p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 4px;
 }
 
@@ -225,5 +287,10 @@ body {
     #c7c7c7 26%,
     #b1adad 100%
   );
-  background: linear-gradient(to bottom, #c3c3c31f 0%, #ebe9e941 26%, #acaaaa4d 100%);
+  background: linear-gradient(
+    to bottom,
+    #c3c3c31f 0%,
+    #ebe9e941 26%,
+    #acaaaa4d 100%
+  );
 }

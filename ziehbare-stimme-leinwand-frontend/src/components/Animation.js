@@ -10,15 +10,12 @@ class Animation extends Component {
     dy: 0
   };
 
-
   getRandomBlue = () => {
-    let r = Math.floor(Math.random() * 100 );
-    let g = Math.floor(Math.random() * 55 );
+    let r = Math.floor(Math.random() * 100);
+    let g = Math.floor(Math.random() * 55);
     let b = Math.floor(Math.random() * 255 + 50);
     return `rgb( ${g}, ${r}, ${b})`;
   };
-
-
 
   getRandomColor = () => {
     let r = Math.floor(Math.random() * 55 + 15);
@@ -68,7 +65,7 @@ class Animation extends Component {
         key={i}
         x={Math.random() * window.innerWidth * 2 - window.innerWidth / 2}
         y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2}
-        radius={Math.floor(Math.random() * 350 )}
+        radius={Math.floor(Math.random() * 350)}
         fill={this.getRandomWhite()}
         opacity={Math.random() * 0.6}
         ref={node => {
@@ -83,7 +80,7 @@ class Animation extends Component {
         key={i}
         x={Math.random() * window.innerWidth * 2 - window.innerWidth / 2}
         y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2}
-        radius={Math.floor(Math.random() * 500 )}
+        radius={Math.floor(Math.random() * 500)}
         fill={this.getRandomColor()}
         ref={node => {
           this.whiteCircle = node;
@@ -92,8 +89,6 @@ class Animation extends Component {
     ));
   };
   componentDidMount() {
-    // console.log(this.circle.animation);
-
     this.circle
       .getLayer()
       .getChildren()
@@ -102,12 +97,11 @@ class Animation extends Component {
         const anim = new Konva.Animation(frame => {
           const period = 800;
           circle.opacity(
-            (Math.sin(frame.time / period + random) + .6) / 1.5 + .4
+            (Math.sin(frame.time / period + random) + 0.6) / 1.5 + 0.4
           );
         }, circle.getLayer());
         anim.start();
       });
-
   }
 
   render() {
@@ -117,11 +111,11 @@ class Animation extends Component {
         width={window.innerWidth * 2}
         height={window.innerHeight * 2}
       >
-        <Layer >
-            {this.getWhiteCircles()}
-            {this.getRandomCircles()}
-            {this.getCircles()}
-            </Layer>
+        <Layer>
+          {this.getWhiteCircles()}
+          {this.getRandomCircles()}
+          {this.getCircles()}
+        </Layer>
       </Stage>
     );
   }
