@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Konva from 'konva';
 import { render } from 'react-dom';
 import { Stage, Layer, Circle } from 'react-konva';
+// import {useSprings, animated} from 'react-spring'
 
 class Animation extends Component {
 
