@@ -1,6 +1,5 @@
 body {
   background-color: rgba(255, 255, 255, 0.192);
-
 }
 
 #root {
@@ -37,7 +36,16 @@ canvas {
 
 .todo-container {
   max-height: 80vh;
+  max-width: 80vw;
   overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.todo-form {
+  background: white;
+  height: 90px;
+  width: 80vw;
 }
 
 .deleteTab {
@@ -47,21 +55,26 @@ canvas {
 .todo-item {
   background: #ffffff71;
   filter: brightness(80%);
+  flex-grow: 1;
+
+  min-height: 15vh;
   display: flex;
+  min-width: 19vw;
   justify-content: space-between;
-  padding: 8px;
-  width: 80vw;
-  border: 1px solid rgba(251, 251, 251, 0.24);;
+  border: 1px solid rgba(251, 251, 251, 0.4);
   border-radius: 3px;
+  margin: 1px;
 }
 
 .todo-action {
+  margin: 8px;
   display: flex;
   flex-direction: column;
 }
 
 .todo-content {
   display: flex;
+  margin: 8px;
   flex-direction: column;
   align-items: flex-start;
 }
