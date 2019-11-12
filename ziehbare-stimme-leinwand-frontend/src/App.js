@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Animation from './components/Animation.js';
 import { voiceRecognize } from "./utils/voiceRecognize.js";
 import ProjectContainer from "./containers/ProjectContainer";
 import TodoContainer from "./containers/TodoContainer";
@@ -111,10 +112,13 @@ class App extends React.Component {
 
   render() {
     const { currentProject, projects } = this.state;
-
+ 
     return (
       <div className="App">
+      <Animation />
+        <div id="toDoList" >
         {/* <h1>{this.state.text}</h1> */}
+<<<<<<< HEAD
         {!this.state.loaded ? (
           <h1 onClick={this.didLoad}>say go</h1>
         ) : (
@@ -135,6 +139,22 @@ class App extends React.Component {
             />
           </>
         )}
+=======
+        <ProjectContainer 
+          projects={projects}
+          currentProject={currentProject}
+          setCurrentProject={this.setCurrentProject}
+          setProjects={this.setProjects}
+          addProject={this.addProject}
+        />
+        <TodoContainer
+          currentProject={currentProject}
+          setTodos={this.setTodos}
+          deleteTodoById={this.deleteTodoById}
+          addTodo={this.addTodo}
+        />
+>>>>>>> 38ae1ee5749b32d1ef7618acb7e92a904fbf68a1
+      </div>
       </div>
     );
   }
