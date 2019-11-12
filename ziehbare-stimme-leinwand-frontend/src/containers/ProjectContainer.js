@@ -89,7 +89,7 @@ export class ProjectContainer extends Component {
 
   displayForm = () => {
     this.setState({
-      addProjectForm: true
+      addProjectForm: !this.state.addProjectForm
     })
   }
 
@@ -101,15 +101,15 @@ export class ProjectContainer extends Component {
       </form>
     )
   }
+  
 
   addProjectTab() {
     return(
-    <li onClick={this.displayForm}> {this.state.addProjectForm ? this.showForm() : "+"} </li>
+    <li onMouseEnter={this.displayForm} onMouseLeave={this.displayForm} > {this.state.addProjectForm ? this.showForm() : "+"} </li>
     )
   }
 
   render() {
-    console.log(this.state.addProjectForm)
     return (
       <div className="tabbed skin-black-glass round" >
         <ul>

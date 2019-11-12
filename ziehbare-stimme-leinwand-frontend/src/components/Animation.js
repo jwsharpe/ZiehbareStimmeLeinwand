@@ -7,6 +7,7 @@ import { Stage, Layer, Circle } from 'react-konva';
 class Animation extends Component {
 
     state={
+      
         dx: 0,
         dy: 0
         
@@ -26,25 +27,32 @@ class Animation extends Component {
         return `rgb( 0, 0, ${b})`
     }
 
+    // setColor = () => {
+    //     if(this.props.currentProject === 1){
+
+    //     }
+    // }
+
 
 
     componentDidMount() {
    
-    var period = 200;
-
-    var anim = new Konva.Animation(frame => {
-      this.rect.opacity((Math.sin(frame.time / period) + 1) / 2);
-    }, this.rect.getLayer());
+        
+    let anim = new Konva.Animation(frame => {
+        let period = 200;
+          this.circle.opacity((Math.sin(frame.time / period) + 1) / 2);
+        }, this.circle.getLayer());
 
     anim.start();
   }
 
 
     render() {
+ 
     return (
-    <Stage   width={window.innerWidth + 100} height={window.innerHeight + 100}>
+    <Stage   width={window.innerWidth } height={window.innerHeight }>
       <Layer>
-        {[...Array(350)].map((_, i) => (
+        {[...Array(550)].map((_, i) => (
           <Circle
             key={i}
             x={Math.random() * window.innerWidth + this.state.dx}
@@ -53,9 +61,10 @@ class Animation extends Component {
             fill={this.getRandomBlue()}
             opacity={Math.random() * .7}
             ref={node => {
-                this.rect = node;
+                this.circle = node;
               }}
           />
+          
         ))}
       </Layer>
     </Stage>

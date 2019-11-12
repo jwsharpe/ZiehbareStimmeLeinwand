@@ -81,7 +81,7 @@ class App extends React.Component {
   };
   render() {
     const { currentProject, projects } = this.state;
-
+ 
     return (
       <div className="App">
       <Animation />
