@@ -21,6 +21,7 @@ body {
 }
 
 canvas {
+  padding: -80px;
   filter: blur(20px);
   /* -webkit-filter: blur(10px); */
 }
@@ -32,6 +33,11 @@ canvas {
   width: 100vw;
   height: 100vh;
   z-index: -1;
+}
+
+.todo-container {
+  max-height: 80vh;
+  overflow-y: scroll;
 }
 
 .deleteTab {
