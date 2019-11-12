@@ -62,7 +62,7 @@ const TodoContainer = props => {
   };
 
   return (
-    <div>
+    <div className="todo-container">
       <form onSubmit={handleForm}>
         <input name="title" placeholder="title" />
         <input name="content" placeholder="content" />

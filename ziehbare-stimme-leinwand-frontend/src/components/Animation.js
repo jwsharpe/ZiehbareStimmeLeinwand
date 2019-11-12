@@ -54,7 +54,7 @@ class Animation extends Component {
       <Circle
         key={i}
         x={Math.random() * window.innerWidth * 2 - window.innerWidth / 2}
-        y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2 }
+        y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2}
         radius={Math.floor(Math.random() * 300 + 50)}
         fill={this.getRandomBlue()}
         opacity={Math.random() * 0.7}
@@ -86,12 +86,10 @@ class Animation extends Component {
     return (
       <Stage
         className="stage"
-        x={-(window.innerWidth / 2)}
-        y={-(window.innerHeight / 2)}
         width={window.innerWidth * 2}
         height={window.innerHeight * 2}
       >
-        <Layer>{this.getCircles()}</Layer>
+        <Layer style={{ left: "40px" }}>{this.getCircles()}</Layer>
       </Stage>
     );
   }

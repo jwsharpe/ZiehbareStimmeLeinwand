@@ -35,6 +35,11 @@ canvas {
   z-index: -1;
 }
 
+.todo-container {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
 .deleteTab {
   color: black;
 }
