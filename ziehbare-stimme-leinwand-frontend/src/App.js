@@ -24,7 +24,7 @@ class App extends React.Component {
     this.setState({ loaded: true });
     anime({
       targets: ".App",
-      rotate: 720,
+      rotate: 720.1,
       duration: 4000,
 
       keyframes: [{ scale: 1 }, { scale: 1.5 }, { scale: 2 }, { scale: 1 }]

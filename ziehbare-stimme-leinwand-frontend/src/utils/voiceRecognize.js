@@ -13,12 +13,29 @@ export async function voiceRecognize() {
       let i = result.scores.indexOf(Math.max(...result.scores));
       if (!this.state.loaded && labels[i] === "go") {
         this.setState({ loaded: true });
+        this.didLoad();
       }
-      if (Math.max(...result.scores) > 0.95) {
+
+      if (Math.max(...result.scores) > 0.55) {
         this.setState({ resultText: labels[i] });
       } else {
         this.setState({ resultText: this.state.text });
       }
+
+      // if (this.state.loaded && this.state.resultText === "go") {
+      //   function randomValues() {
+      //     anime({
+      //       targets: ".App",
+      //       translateY: function() {
+      //         return anime.random(0, 270);
+      //       },
+      //       easing: "easeInOutQuad",
+      //       duration: 750,
+      //       complete: randomValues
+      //     });
+      //   }
+      //   randomValues();
+      // }
 
       if (this.state.resultText === "up") {
         this.setState(
