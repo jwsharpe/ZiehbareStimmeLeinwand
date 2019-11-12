@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Animation from "./components/Animation.js";
 import { voiceRecognize } from "./utils/voiceRecognize.js";
 import ProjectContainer from "./containers/ProjectContainer";
 import TodoContainer from "./containers/TodoContainer";
@@ -22,25 +21,11 @@ class App extends React.Component {
   didLoad = () => {
     this.setState({ loaded: true });
     anime({
-      targets: "div",
-      rotate: 540,
+      targets: ".App",
+      rotate: 720,
       duration: 4000,
 
-      keyframes: [
-        { scale: 1 },
-        { scale: 1.1, backgroundColor: "#000", translateX: "50vw" },
-        { scale: 1 },
-        { scale: 1.5, translateX: "-50vw" },
-        { scale: 1 },
-        { scale: 1.5, backgroundColor: "#000034" },
-        { scale: 1, translateX: "-40vw" },
-        { scale: 1.5, translateY: "150vh" },
-        { scale: 1 },
-        { scale: 1.5, backgroundColor: "#002c34" },
-        { scale: 1, translateX: "40vw" },
-        { scale: 1.5, backgroundColor: "#282c34", translateY: "-150vh" },
-        { scale: 1 }
-      ]
+      keyframes: [{ scale: 1 }, { scale: 1.5 }, { scale: 2 }, { scale: 1 }]
     });
   };
 
@@ -115,30 +100,27 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <Animation />
-        <div id="toDoList">
-          {/* <h1>{this.state.text}</h1> */}
-          {!this.state.loaded ? (
-            <h1 onClick={this.didLoad}>say go</h1>
-          ) : (
-            <>
-              <ProjectContainer
-                projects={projects}
-                currentProject={currentProject}
-                setCurrentProject={this.setCurrentProject}
-                setProjects={this.setProjects}
-                addProject={this.addProject}
-                didLoad={this.didLoad}
-              />
-              <TodoContainer
-                currentProject={currentProject}
-                setTodos={this.setTodos}
-                deleteTodoById={this.deleteTodoById}
-                addTodo={this.addTodo}
-              />
-            </>
-          )}
-        </div>
+        {/* <h1>{this.state.text}</h1> */}
+        {!this.state.loaded ? (
+          <h1 onClick={this.didLoad}>say go</h1>
+        ) : (
+          <>
+            <ProjectContainer
+              projects={projects}
+              currentProject={currentProject}
+              setCurrentProject={this.setCurrentProject}
+              setProjects={this.setProjects}
+              addProject={this.addProject}
+              didLoad={this.didLoad}
+            />
+            <TodoContainer
+              currentProject={currentProject}
+              setTodos={this.setTodos}
+              deleteTodoById={this.deleteTodoById}
+              addTodo={this.addTodo}
+            />
+          </>
+        )}
       </div>
     );
   }

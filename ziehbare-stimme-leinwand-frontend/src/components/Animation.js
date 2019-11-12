@@ -50,7 +50,7 @@ class Animation extends Component {
     render() {
  
     return (
-    <Stage   width={window.innerWidth } height={window.innerHeight }>
+    <Stage className='stage'  width={window.innerWidth } height={window.innerHeight }>
       <Layer>
         {[...Array(550)].map((_, i) => (
           <Circle

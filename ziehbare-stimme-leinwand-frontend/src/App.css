@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 body {
@@ -29,11 +31,11 @@ canvas {
   /* -webkit-filter: blur(10px); */
 }
 
-#toDoList {
+.stage {
   position: absolute;
-  z-index: 1;
-  width: 90%;
-  height: 80%;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
 .deleteTab {
@@ -74,10 +76,6 @@ canvas {
   padding: 0;
   margin: 40px 0;
   text-align: center;
-}
-
-#addProject {
-  background-color: rgba(255, 255, 255, 0);
 }
 
 .switcher-box a.skin-gray-black span {
@@ -212,8 +210,4 @@ canvas {
     #000000 100%
   );
   background: linear-gradient(to bottom, #949494 0%, #c7c7c7 26%, #000000 100%);
-}
-
-appAnimate {
-  animation: appIn 5s ease-in direction forwards;
 }
