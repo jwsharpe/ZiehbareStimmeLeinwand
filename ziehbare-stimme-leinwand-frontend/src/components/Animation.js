@@ -31,26 +31,49 @@ class Animation extends Component {
     return `rgb(${r},${g},${b})`;
   };
 
-  // setColor = () => {
-  //     if(this.props.currentProject === 1){
+  getRandomOrange = () => {
+    let r = Math.random() * (230 - 215 + 1) + 215;
+    let g = Math.random() * (180 - 165 + 1) + 165;
+    let b = Math.random() * (65 - 55 + 1) + 55;
+    return `rgb(${r},${g},${b})`;
+  };
 
-  //     }
-  // }
-
-  //   componentDidMount() {
-  //     let anim = new Konva.Animation(frame => {
-  //       let period = 1000;
-  //       this.circle.opacity((Math.sin(frame.time / period) + 1) / 2);
-  //     }, this.circle.getLayer());
+  //
 
   getCircles = () => {
+    let changeColorWithVoice;
+
+    if (this.props.voiceCommand === "zero") {
+      changeColorWithVoice = this.getRandomGreen();
+    } else if (this.props.voiceCommand === "one") {
+      changeColorWithVoice = this.getRandomColor();
+    } else if (this.props.voiceCommand === "two") {
+      changeColorWithVoice = this.getRandomWhite();
+    } else if (this.props.voiceCommand === "three") {
+      changeColorWithVoice = this.getRandomRed();
+    } else if (this.props.voiceCommand === "four") {
+      changeColorWithVoice = this.getRandomPink();
+    } else if (this.props.voiceCommand === "five") {
+      changeColorWithVoice = this.getRandomYellow();
+    } else if (this.props.voiceCommand === "six") {
+      changeColorWithVoice = this.getRandomAqua();
+    } else if (this.props.voiceCommand === "seven") {
+      changeColorWithVoice = this.getRandomPurple();
+    } else if (this.props.voiceCommand === "eight") {
+      changeColorWithVoice = this.getRandomLightBlue();
+    } else if (this.props.voiceCommand === "nine") {
+      changeColorWithVoice = this.getRandomOrange();
+    } else {
+      changeColorWithVoice = this.getRandomBlue();
+    }
+
     return [...Array(135)].map((ele, i) => (
       <Circle
         key={i}
         x={Math.random() * window.innerWidth * 2 - window.innerWidth / 2}
         y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2}
         radius={Math.floor(Math.random() * 200)}
-        fill={this.getRandomBlue()}
+        fill={changeColorWithVoice}
         // opacity={Math.random() * 0.1}
         ref={node => {
           this.circle = node;

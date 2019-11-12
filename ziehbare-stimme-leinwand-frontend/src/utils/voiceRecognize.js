@@ -16,10 +16,15 @@ export async function voiceRecognize() {
         this.didLoad();
       }
 
-      if (Math.max(...result.scores) > 0.55) {
+      if (Math.max(...result.scores) > 0.95) {
         this.setState({ resultText: labels[i] });
       } else {
         this.setState({ resultText: this.state.text });
+      }
+
+      if (this.state.resultText !== "") {
+        this.props.setVoiceCommand(this.state.resultText);
+        console.log(this.props.voiceCommand);
       }
 
       if (this.state.resultText === "up") {

@@ -209,7 +209,7 @@ body {
   top: 0;
   height: 100%;
   width: 44px;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   transition: all 250ms ease;
 }
 .tabbed ul li:before {
