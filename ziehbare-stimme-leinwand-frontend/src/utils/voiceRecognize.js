@@ -22,24 +22,10 @@ export async function voiceRecognize() {
         this.setState({ resultText: this.state.text });
       }
 
-      if(this.state.resultText !== ""){
-        this.props.setVoiceCommand(this.state.resultText)
-        console.log(this.props.voiceCommand)
+      if (this.state.resultText !== "") {
+        this.props.setVoiceCommand(this.state.resultText);
+        console.log(this.props.voiceCommand);
       }
-      // if (this.state.loaded && this.state.resultText === "go") {
-      //   function randomValues() {
-      //     anime({
-      //       targets: ".App",
-      //       translateY: function() {
-      //         return anime.random(0, 270);
-      //       },
-      //       easing: "easeInOutQuad",
-      //       duration: 750,
-      //       complete: randomValues
-      //     });
-      //   }
-      //   randomValues();
-      // }
 
       if (this.state.resultText === "up") {
         this.setState(

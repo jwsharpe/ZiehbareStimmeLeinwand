@@ -36,6 +36,35 @@ class App extends React.Component {
   voiceRecognize = voiceRecognize.bind(this);
   componentDidMount() {
     this.voiceRecognize();
+    setTimeout(
+      () =>
+        setInterval(() => {
+          this.setState(
+            prev => ({
+              scale: prev.scale + (Math.random() * 0.05 - 0.025)
+            }),
+            () =>
+              anime({
+                targets: ".App",
+                duration: 1000,
+                scale: this.state.scale
+              })
+          );
+
+          this.setState(
+            prev => ({
+              left: prev.left + parseInt(Math.random() * 10 - 5)
+            }),
+            () =>
+              anime({
+                targets: ".App",
+                duration: 1000,
+                translateX: this.state.left
+              })
+          );
+        }, 2500),
+      10000
+    );
   }
 
   setTodos = todos => {
@@ -101,7 +130,6 @@ class App extends React.Component {
 
   render() {
     const { currentProject, projects } = this.state;
-    console.log(this.state.resultText)
     return (
       <div className="App">
         {/* <h1>{this.state.text}</h1> */}

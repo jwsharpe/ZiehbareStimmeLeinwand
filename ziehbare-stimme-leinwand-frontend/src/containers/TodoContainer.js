@@ -64,9 +64,9 @@ const TodoContainer = props => {
   return (
     <div className="todo-container">
       <form className="todo-form" onSubmit={handleForm}>
-        <input name="title" placeholder="title" />
-        <input name="content" placeholder="content" />
-        <input value="add todo" type="submit" />
+        <input id="title" name="title" placeholder="title" />
+        <input id="content" name="content" placeholder="content" />
+        <input id="submit" name="submit" value="add todo" type="submit" />
       </form>
       {renderTodos()}
     </div>
