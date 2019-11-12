@@ -40,11 +40,11 @@ class Animation extends Component {
   //     }
   // }
 
-//   componentDidMount() {
-//     let anim = new Konva.Animation(frame => {
-//       let period = 1000;
-//       this.circle.opacity((Math.sin(frame.time / period) + 1) / 2);
-//     }, this.circle.getLayer());
+  //   componentDidMount() {
+  //     let anim = new Konva.Animation(frame => {
+  //       let period = 1000;
+  //       this.circle.opacity((Math.sin(frame.time / period) + 1) / 2);
+  //     }, this.circle.getLayer());
 
   getCircles = () => {
     return [...Array(135)].map((ele, i) => (
@@ -83,7 +83,7 @@ class Animation extends Component {
         key={i}
         x={Math.random() * window.innerWidth * 2 - window.innerWidth / 2}
         y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2}
-        radius={Math.floor(Math.random() * 300 )}
+        radius={Math.floor(Math.random() * 500 )}
         fill={this.getRandomColor()}
         ref={node => {
           this.whiteCircle = node;
@@ -102,7 +102,7 @@ class Animation extends Component {
         const anim = new Konva.Animation(frame => {
           const period = 800;
           circle.opacity(
-            (Math.sin(frame.time / period + random) + .6) / 1.5 + .7
+            (Math.sin(frame.time / period + random) + .6) / 1.5 + .4
           );
         }, circle.getLayer());
         anim.start();

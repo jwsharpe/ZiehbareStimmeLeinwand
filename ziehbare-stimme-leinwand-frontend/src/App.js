@@ -12,10 +12,12 @@ const TODO_PATH = id => TODOS_PATH + "/" + id;
 
 class App extends React.Component {
   state = {
-    text: "hi",
-    loaded: false,
+    resultText: "",
+    loaded: true,
     projects: [],
-    currentProject: {}
+    currentProject: {},
+    scale: 1.0,
+    left: 0
   };
 
   didLoad = () => {
@@ -31,7 +33,7 @@ class App extends React.Component {
 
   voiceRecognize = voiceRecognize.bind(this);
   componentDidMount() {
-    // this.voiceRecognize();
+    this.voiceRecognize();
   }
 
   setTodos = todos => {
@@ -97,14 +99,13 @@ class App extends React.Component {
 
   render() {
     const { currentProject, projects } = this.state;
-
+    console.log(this.state.resultText)
     return (
       <div className="App">
         {/* <h1>{this.state.text}</h1> */}
-        {/* {!this.state.loaded ? (
+        {!this.state.loaded ? (
           <h1 onClick={this.didLoad}>say go</h1>
-        ) :  */}
-        
+        ) : (
           <>
             <ProjectContainer
               projects={projects}
@@ -121,7 +122,7 @@ class App extends React.Component {
               addTodo={this.addTodo}
             />
           </>
-        {/* )} */}
+        )}
       </div>
     );
   }

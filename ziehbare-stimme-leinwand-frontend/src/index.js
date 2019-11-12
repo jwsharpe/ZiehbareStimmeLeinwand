@@ -5,6 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import Animation from "./components/Animation.js";
 
+
 ReactDOM.render(
   <>
     <Animation />

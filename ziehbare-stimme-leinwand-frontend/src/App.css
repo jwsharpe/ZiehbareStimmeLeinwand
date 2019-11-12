@@ -37,7 +37,16 @@ body {
 
 .todo-container {
   max-height: 80vh;
+  max-width: 80vw;
   overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.todo-form {
+  background: rgba(255, 255, 255, 0.301);
+  height: 30px;
+  width: 80vw;
 }
 
 .deleteTab {
@@ -45,23 +54,29 @@ body {
 }
 
 .todo-item {
-  background: #ffffffc7;
-  /* filter: brightness(80%); */
+  
+  background: #ffffff71;
+  filter: brightness(80%);
+  flex-grow: 1;
+
+  min-height: 15vh;
   display: flex;
+  min-width: 19vw;
   justify-content: space-between;
-  padding: 8px;
-  width: 80vw;
-  border: 1px solid rgba(251, 251, 251, 0.24);;
+  border: 1px solid rgba(251, 251, 251, 0.4);
   border-radius: 3px;
+  margin: 1px;
 }
 
 .todo-action {
+  margin: 8px;
   display: flex;
   flex-direction: column;
 }
 
 .todo-content {
   display: flex;
+  margin: 8px;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -74,7 +89,6 @@ body {
 .todo-content p {
   font-size: 1rem;
   margin: 4px;
-  margin-left: 8px;
 }
 
 .switcher-box {
@@ -113,7 +127,7 @@ body {
   display: block;
   float: right;
   padding: 10px 24px 8px;
-  background-color: #fff;
+  background-color: rgb(207, 114, 114);
   margin-right: 46px;
   z-index: 2;
   position: relative;
@@ -140,7 +154,7 @@ body {
   right: -24px;
   transform: skew(30deg, 0deg);
   box-shadow: rgba(0, 0, 0, 0.1) 3px 2px 5px,
-    inset rgba(255, 255, 255, 0.09) -1px 0;
+    inset rgba(214, 44, 44, 0.09) -1px 0;
 }
 .tabbed ul li:after {
   left: -24px;
@@ -182,7 +196,7 @@ body {
 }
 
 .tabbed.skin-black-glass {
-  border-bottom-color: #0a0809;
+  border-bottom-color: #ffffff86;
 }
 .tabbed.skin-black-glass,
 .tabbed.skin-black-glass ul li,
@@ -193,12 +207,12 @@ body {
 .tabbed.skin-black-glass ul li,
 .tabbed.skin-black-glass ul li:before,
 .tabbed.skin-black-glass ul li:after {
-  background-color: #333;
+  background-color: rgba(51, 51, 51, 0.4);
 }
 .tabbed.skin-black-glass ul li:hover,
 .tabbed.skin-black-glass ul li:hover:before,
 .tabbed.skin-black-glass ul li:hover:after {
-  background-color: #444;
+  background-color: rgba(68, 68, 68, 0.2);
 }
 .tabbed.skin-black-glass ul li.active,
 .tabbed.skin-black-glass ul li.active:before,
@@ -209,7 +223,7 @@ body {
     top,
     #949494 0%,
     #c7c7c7 26%,
-    #000000 100%
+    #b1adad 100%
   );
-  background: linear-gradient(to bottom, #949494 0%, #c7c7c7 26%, #000000 100%);
+  background: linear-gradient(to bottom, #c3c3c31f 0%, #ebe9e941 26%, #acaaaa4d 100%);
 }
