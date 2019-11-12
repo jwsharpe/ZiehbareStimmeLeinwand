@@ -3,7 +3,7 @@ body {
 }
 
 body {
-  background-color: rgba(47, 40, 139, 0.931);
+  background-color: rgba(255, 255, 255, 0.931);
 }
 
 #root {
@@ -25,8 +25,8 @@ body {
 }
 
 canvas {
-  filter: blur(20px);
-  /* -webkit-filter: blur(10px); */
+  filter: blur(0px);
+  -webkit-filter: blur(30px);
 }
 
 .stage {
@@ -41,11 +41,14 @@ canvas {
 }
 
 .todo-item {
-  background: #4f545c;
+  background: #ffffff71;
+  filter: brightness(80%);
   display: flex;
   justify-content: space-between;
   padding: 8px;
   width: 80vw;
+  border: 1px solid rgba(251, 251, 251, 0.24);;
+  border-radius: 3px;
 }
 
 .todo-action {

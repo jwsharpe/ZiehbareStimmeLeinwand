@@ -101,9 +101,10 @@ class App extends React.Component {
     return (
       <div className="App">
         {/* <h1>{this.state.text}</h1> */}
-        {!this.state.loaded ? (
+        {/* {!this.state.loaded ? (
           <h1 onClick={this.didLoad}>say go</h1>
-        ) : (
+        ) :  */}
+        
           <>
             <ProjectContainer
               projects={projects}
@@ -120,7 +121,7 @@ class App extends React.Component {
               addTodo={this.addTodo}
             />
           </>
-        )}
+        {/* )} */}
       </div>
     );
   }

@@ -30,6 +30,13 @@ class Animation extends Component {
     return `rgb(${r},${g},${b})`;
   };
 
+  getRandomWhite = () => {
+    let r = Math.floor(Math.random() * 255 + 180);
+    let g = Math.floor(Math.random() * 255 + 180);
+    let b = Math.floor(Math.random() * 255 + 100);
+    return `rgb(${r},${g},${b})`;
+  };
+
   // setColor = () => {
   //     if(this.props.currentProject === 1){
 
@@ -38,7 +45,7 @@ class Animation extends Component {
 
   componentDidMount() {
     let anim = new Konva.Animation(frame => {
-      let period = 200;
+      let period = 1000;
       this.circle.opacity((Math.sin(frame.time / period) + 1) / 2);
     }, this.circle.getLayer());
 
@@ -53,14 +60,28 @@ class Animation extends Component {
         height={window.innerHeight}
       >
         <Layer>
+          {[...Array(250)].map((_, i) => (
+            <Circle
+              key={i}
+              x={Math.random() * window.innerWidth + this.state.dx}
+              y={Math.random() * window.innerHeight + this.state.dx}
+              radius={Math.floor(Math.random() * 200)}
+              fill={this.getRandomBlue()}
+              opacity={Math.random() * 0.7}
+              
+              ref={node => {
+                this.circle = node;
+              }}
+            />
+          ))}
           {[...Array(80)].map((_, i) => (
             <Circle
               key={i}
               x={Math.random() * window.innerWidth + this.state.dx}
               y={Math.random() * window.innerHeight + this.state.dx}
               radius={Math.floor(Math.random() * 200)}
-              fill={this.getRandomColor()}
-              opacity={Math.random() * 0.7}
+              fill={this.getRandomWhite()}
+              opacity={Math.random() * 0.4}
               ref={node => {
                 this.circle = node;
               }}
