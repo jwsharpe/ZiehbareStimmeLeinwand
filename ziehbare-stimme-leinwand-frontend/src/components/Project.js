@@ -15,7 +15,7 @@ export class Project extends Component {
 
   render() {
     return (
-        <li  onClick={this.handleclick} className={this.props.isSelected ? "active": null} id="text" >{this.props.title} 
+        <li  onClick={this.handleclick} className={this.props.isSelected ? "active": null} id="text" >{this.props.title}      
   <span className="deleteTab" onClick={this.handleDelete}> X </span> </li>
     );
   }

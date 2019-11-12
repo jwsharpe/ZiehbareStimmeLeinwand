@@ -44,7 +44,8 @@ export class Todo extends Component {
           </form>
         ) : (
           <div className="todo-content">
-            <h6>{this.props.title}</h6>
+            <h6>{this.props.title} <input type="checkbox" id="checkbox_1"></input></h6>
+    
             <p>{this.props.content}</p>
           </div>
         )}

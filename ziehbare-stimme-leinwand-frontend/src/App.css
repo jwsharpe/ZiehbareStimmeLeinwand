@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(255, 255, 255, 0.192);
+  background-color: rgba(255, 255, 255, 0.555);
 
 }
 
@@ -21,17 +21,17 @@ body {
   text-align: center;
 }
 
-canvas {
-  filter: blur(0px);
-  -webkit-filter: blur(30px);
-}
 
 .stage {
-  overflow: scroll;
+  left:-30px;
+  right:-30px;
+  top:-30px;
+  bottom:-30px;
+  filter: blur(30px);
 
+  overflow: scroll;
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+
   z-index: -1;
 }
 
@@ -45,8 +45,8 @@ canvas {
 }
 
 .todo-item {
-  background: #ffffff71;
-  filter: brightness(80%);
+  background: #ffffffc7;
+  /* filter: brightness(80%); */
   display: flex;
   justify-content: space-between;
   padding: 8px;
