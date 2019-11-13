@@ -126,16 +126,23 @@ class App extends React.Component {
     });
   };
 
+  handleClick = () => {
+    this.setState({
+      loaded: !this.state.loaded 
+    })
+  }
+
   render() {
     const { currentProject, projects } = this.state;
     return (
       <div className="App">
         {/* <h1>{this.state.text}</h1> */}
         {!this.state.loaded ? (
-          <h1 >say go</h1>
+          <h1 onClick={this.handleClick} >say go</h1>
         ) : (
           <>
             <ProjectContainer
+              darkMode={this.props.darkMode}
               projects={projects}
               currentProject={currentProject}
               setCurrentProject={this.setCurrentProject}
@@ -144,6 +151,7 @@ class App extends React.Component {
               didLoad={this.didLoad}
             />
             <TodoContainer
+              darkMode={this.props.darkMode}
               currentProject={currentProject}
               setTodos={this.setTodos}
               deleteTodoById={this.deleteTodoById}

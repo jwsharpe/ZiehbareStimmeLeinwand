@@ -14,8 +14,11 @@ export class Project extends Component {
 
 
   render() {
+    const h5StyleDark = {color: 'white'}
+    const h5StyleLight = {color: 'black'}
+
     return (
-        <li  onClick={this.handleclick} className={this.props.isSelected ? "active": null} id="text" >{this.props.title}      
+        <li style={this.props.darkMode ? h5StyleDark : h5StyleLight} onClick={this.handleclick} className={this.props.isSelected ? "active": null} id="text" >{this.props.title}   
   <span className="deleteTab" onClick={this.handleDelete}> X </span> </li>
     );
   }

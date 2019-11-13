@@ -31,12 +31,16 @@ export class Todo extends Component {
     );
   };
   render() {
+
+    const h5StyleDark = {color: 'white'}
+    const h5StyleLight = {color: 'black'}
+
     return (
       <div className="todo-item">
         {this.state.editable ? (
-          <form name="form" onChange={this.handleChange}>
+          <form className="edit-todo-form" name="form" onChange={this.handleChange}>
             <input onChange={() => {}} name="title" value={this.state.title} />
-            <input
+            <textarea rows="4" cols="50"
               onChange={() => {}}
               name="content"
               value={this.state.content}
@@ -44,9 +48,9 @@ export class Todo extends Component {
           </form>
         ) : (
           <div className="todo-content">
-            <h6>{this.props.title}</h6>
+            <h5 style={this.props.darkMode ? h5StyleDark : h5StyleLight} >{this.props.title}</h5>
 
-            <p>{this.props.content}</p>
+            <p style={this.props.darkMode ? h5StyleDark : h5StyleLight}>{this.props.content}</p>
           </div>
         )}
 

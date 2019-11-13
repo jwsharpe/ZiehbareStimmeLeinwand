@@ -77,6 +77,7 @@ export class ProjectContainer extends Component {
   renderProjects() {
     return this.props.projects.map(project => (
       <Project
+        darkMode={this.props.darkMode}
         key={project.id}
         {...project}
         isSelected={this.isSelectedProject(project)}
@@ -101,10 +102,12 @@ export class ProjectContainer extends Component {
   };
 
   addProjectTab() {
+    const h5StyleDark = {color: 'white'}
+    const h5StyleLight = {color: 'black'}
     return (
-      <li onMouseEnter={this.displayForm} onMouseLeave={this.displayForm}>
+      <li style={this.props.darkMode ? h5StyleDark : h5StyleLight} className="add-tab" onMouseEnter={this.displayForm} onMouseLeave={this.displayForm}>
         {" "}
-        {this.state.addProjectForm ? this.showForm() : "+"}{" "}
+        {this.state.addProjectForm ? this.showForm() : <h1>+</h1>}{" "}
       </li>
     );
   }
