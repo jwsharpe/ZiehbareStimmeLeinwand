@@ -10,7 +10,8 @@ import Animation from "./components/Animation.js";
 class Index extends React.Component {
 
     state={
-        voiceCommand: ""
+        voiceCommand: "",
+        darkMode: false
     }
 
     setVoiceCommand = (resultText) => {
@@ -18,11 +19,29 @@ class Index extends React.Component {
     console.log(this.state.voiceCommand)
   }
 
+  handleDarkMode = () => {
+    this.setState({
+        darkMode: !this.state.darkMode
+    })
+    console.log(this.state.darkMode)
+  }
+
     render() {
+
+
         return (
-            <div id="root">
-                <Animation voiceCommand={this.state.voiceCommand} />
-                <App setVoiceCommand={this.setVoiceCommand} voiceCommand={this.state.voiceCommand} />
+      
+            <div  id="root">
+                <div id="dark-mode">
+                    <label className="switch">
+                        <input onClick={this.handleDarkMode} type="checkbox" />
+                        <div>
+                            <span></span>
+                        </div>
+                    </label>
+                </div>
+                <Animation darkMode={this.state.darkMode} voiceCommand={this.state.voiceCommand} />
+                <App darkMode={this.state.darkMode} setVoiceCommand={this.setVoiceCommand} voiceCommand={this.state.voiceCommand} />
             </div>
         );
     }

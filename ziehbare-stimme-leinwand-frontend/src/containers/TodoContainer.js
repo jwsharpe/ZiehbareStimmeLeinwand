@@ -33,6 +33,7 @@ const TodoContainer = props => {
         <Todo
           key={todo.id}
           {...todo}
+          darkMode={props.darkMode}
           deleteTodo={() => props.deleteTodoById(todo.id)}
           updateTodo={updateTodo}
         />

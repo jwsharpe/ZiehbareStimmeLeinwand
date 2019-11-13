@@ -5,10 +5,6 @@ import { Stage, Layer, Circle } from "react-konva";
 // import {useSprings, animated} from 'react-spring'
 
 class Animation extends Component {
-  state = {
-    dx: 0,
-    dy: 0
-  };
 
   getRandomBlue = () => {
     let r = Math.floor(Math.random() * 100);
@@ -19,8 +15,8 @@ class Animation extends Component {
 
   getRandomLightBlue = () => {
     let r = Math.floor(Math.random() * 100 );
-    let g = Math.floor(Math.random() * 55 );
-    let b = Math.floor(Math.random() * 255 + 50);
+    let g = Math.floor(Math.random() * 35 );
+    let b = (Math.random() * ((260 - 215) + 1)) + 215
     return `rgb( ${g}, ${g}, ${b})`;
   };
 
@@ -40,23 +36,23 @@ class Animation extends Component {
 
   getRandomRed = () => {
     let r = Math.floor(Math.random() * 100 );
-    let g = Math.floor(Math.random() * 55 );
+    let g = Math.floor(Math.random() * 45 );
     let b = Math.floor(Math.random() * 255 + 50);
-    return `rgb( ${b}, ${g}, ${g})`;
+    return `rgb( ${225}, ${g}, ${g})`;
   };
 
   getRandomYellow = () => {
-    let r = Math.floor(Math.random() * 100 );
-    let g = Math.floor(Math.random() * 55 );
-    let b = Math.floor(Math.random() * 255 + 50);
-    return `rgb( ${b}, ${b}, ${0})`;
+    let r = (Math.random() * ((265 - 240) + 1)) + 240
+    let g = (Math.random() * ((265 - 240) + 1)) + 240
+    let b = (Math.random() * ((85 - 73) + 1)) + 73
+    return `rgb( ${r}, ${g}, ${b})`;
   };
 
   getRandomAqua = () => {
     let r = Math.floor(Math.random() * 100 );
     let g = Math.floor(Math.random() * 55 );
     let b = Math.floor(Math.random() * 255 + 50);
-    return `rgb( ${255}, ${255}, ${225})`;
+    return `rgb( ${b}, ${255}, ${b})`;
   };
 
   getRandomPurple = () => {
@@ -74,10 +70,9 @@ class Animation extends Component {
   };
 
   getRandomWhite = () => {
-    let r = Math.floor(Math.random() * 255 + 120);
-    let g = Math.floor(Math.random() * 255 + 120);
-    let b = Math.floor(Math.random() * 255 + 120);
-    return `rgb(${r},${g},${b})`;
+    let r = (Math.random() * ((260 - 245) + 1)) + 245
+ 
+    return `rgb(${r},${r},${r})`;
   };
 
   getRandomOrange = () => {
@@ -85,6 +80,12 @@ class Animation extends Component {
     let g = (Math.random() * ((180 - 165) + 1)) + 165
     let b = (Math.random() * ((65 - 55) + 1)) + 55
     return `rgb(${255},${155},${52})`;
+  };
+
+  getRandomBlack = () => {
+    let r = (Math.random() * ((5 - 0) + 1)) + 0
+    
+    return `rgb(${r},${r},${r})`;
   };
 
   //
@@ -110,19 +111,19 @@ class Animation extends Component {
         }else if (this.props.voiceCommand === "seven") {
             changeColorWithVoice = this.getRandomPurple()
         }else if (this.props.voiceCommand === "eight") {
-            changeColorWithVoice = this.getRandomLightBlue()
+            changeColorWithVoice = this.getRandomBlack()
         }else if (this.props.voiceCommand === "nine") {
             changeColorWithVoice = this.getRandomOrange()
         }else  {
             changeColorWithVoice = this.getRandomLightBlue()
         }
-
-    return [...Array(135)].map((ele, i) => (
+     
+    return [...Array(235)].map((ele, i) => (
       <Circle
         key={i}
         x={Math.random() * window.innerWidth * 2 - window.innerWidth / 2}
         y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2}
-        radius={Math.floor(Math.random() * 200)}
+        radius={Math.floor(Math.random() * 150)}
         fill={changeColorWithVoice}
         // opacity={Math.random() * 0.1}
         ref={node => {
@@ -133,13 +134,13 @@ class Animation extends Component {
   };
 
   getWhiteCircles = () => {
-    return [...Array(110)].map((ele, i) => (
+    return [...Array(160)].map((ele, i) => (
       <Circle
         key={i}
         x={Math.random() * window.innerWidth * 2 - window.innerWidth / 2}
         y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2}
-        radius={Math.floor(Math.random() * 350)}
-        fill={this.getRandomWhite()}
+        radius={Math.floor(Math.random() * 280)}
+        fill={this.props.darkMode ? this.getRandomBlack() : this.getRandomWhite()}
         opacity={Math.random() * 0.6}
         ref={node => {
           this.whiteCircle = node;
@@ -148,13 +149,38 @@ class Animation extends Component {
     ));
   };
   getRandomCircles = () => {
-    return [...Array(30)].map((ele, i) => (
+
+    let changeColorWithVoice2
+
+    if (this.props.voiceCommand === "one") {
+        changeColorWithVoice2 = this.getRandomGreen()
+    }else if (this.props.voiceCommand === "three") {
+        changeColorWithVoice2 = this.getRandomWhite()
+    }else if (this.props.voiceCommand === "five") {
+        changeColorWithVoice2 = this.getRandomLightBlue()
+    }else if (this.props.voiceCommand === "four") {
+        changeColorWithVoice2 = this.getRandomPink()
+    }else if (this.props.voiceCommand === "seven") {
+        changeColorWithVoice2 = this.getRandomYellow()
+    }else if (this.props.voiceCommand === "six") {
+        changeColorWithVoice2 = this.getRandomRed()
+    }else if (this.props.voiceCommand === "two") {
+        changeColorWithVoice2 = this.getRandomPurple()
+    }else if (this.props.voiceCommand === "eight") {
+        changeColorWithVoice2 = this.getRandomBlack()
+    }else if (this.props.voiceCommand === "nine") {
+        changeColorWithVoice2 = this.getRandomOrange()
+    }else  {
+        changeColorWithVoice2 = this.getRandomRed()
+    }
+
+    return [...Array(200)].map((ele, i) => (
       <Circle
         key={i}
         x={Math.random() * window.innerWidth * 2 - window.innerWidth / 2}
         y={Math.random() * window.innerHeight * 2 - window.innerHeight / 2}
-        radius={Math.floor(Math.random() * 500)}
-        fill={this.getRandomColor()}
+        radius={Math.floor(Math.random() * 100)}
+        fill={changeColorWithVoice2}
         ref={node => {
           this.whiteCircle = node;
         }}
@@ -170,7 +196,7 @@ class Animation extends Component {
         const anim = new Konva.Animation(frame => {
           const period = 800;
           circle.opacity(
-            (Math.sin(frame.time / period + random) + 0.6) / 1.5 + 0.4
+            (Math.sin(frame.time / period + random) + 0.6) / 1.5 + .7
           );
         }, circle.getLayer());
         anim.start();
@@ -178,6 +204,8 @@ class Animation extends Component {
   }
 
   render() {
+    
+
     return (
       <Stage
         className="stage"
@@ -185,9 +213,9 @@ class Animation extends Component {
         height={window.innerHeight * 2}
       >
         <Layer>
-          {this.getWhiteCircles()}
-          {this.getRandomCircles()}
           {this.getCircles()}
+          {this.getRandomCircles()}
+          {this.getWhiteCircles()}
         </Layer>
       </Stage>
     );

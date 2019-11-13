@@ -13,7 +13,7 @@ const TODO_PATH = id => TODOS_PATH + "/" + id;
 class App extends React.Component {
   state = {
     resultText: "",
-    loaded: false,
+    loaded: true,
     projects: [],
     currentProject: {},
     scale: 1.0,
@@ -138,6 +138,7 @@ class App extends React.Component {
         ) : (
           <>
             <ProjectContainer
+              darkMode={this.props.darkMode}
               projects={projects}
               currentProject={currentProject}
               setCurrentProject={this.setCurrentProject}
@@ -146,6 +147,7 @@ class App extends React.Component {
               didLoad={this.didLoad}
             />
             <TodoContainer
+              darkMode={this.props.darkMode}
               currentProject={currentProject}
               setTodos={this.setTodos}
               deleteTodoById={this.deleteTodoById}

@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(255, 255, 255, 0.555);
+  background-color: rgba(0, 0, 0, 0.103);
   overflow: hidden;
 }
 
@@ -8,8 +8,26 @@ body {
   justify-content: center;
   align-items: flex-start;
 }
+
+#addProject {
+background: rgba(255, 255, 255, 0.685);
+border: 0px solid #1C6EA4;
+border-radius: 2px;
+font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+}
+
+
+h5 {
+  text-transform: uppercase;
+  font: 600 30px/50px roboto, "Open Sans", Helvetica, sans-serif;
+}
+
+/* p {
+  font: 600 8px/10px roboto, "Open Sans", Helvetica, sans-serif;
+} */
+
 .App {
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +42,7 @@ body {
   right: -30px;
   top: -30px;
   bottom: -30px;
-  filter: blur(30px);
+  filter: blur(20px);
 
   overflow: hidden;
   position: absolute;
@@ -34,29 +52,31 @@ body {
 
 .todo-big-container {
   max-height: 80vh;
-  max-width: 80vw;
+  max-width: 85vw;
 }
 
 .todo-container {
   max-height: 80vh;
-  max-width: 80vw;
+  max-width: 85vw;
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
 }
 
 .todo-form {
-  background: rgba(255, 255, 255, 0.301);
-  width: 80vw;
+  background: rgba(131, 129, 129, 0.26);
+  border-radius: 8px;
+  width: 85vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .todo-form input {
   border: none;
   font-size: 1rem;
-  background: #fff5;
+  background: rgba(255, 255, 255, 0.877);
   margin: 8px;
   color: #000f00;
   padding: 8px;
@@ -86,7 +106,9 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.109);
   cursor: pointer;
   border-radius: 5px;
-  font-size: 1rem;
+  text-transform: uppercase;
+  font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+  
 }
 
 .todo-form #submit:hover {
@@ -100,25 +122,41 @@ body {
   outline: none;
 }
 .deleteTab {
-  color: black;
+  color: rgba(68, 63, 63, 0.76);
 }
 
 .todo-item {
   background: #ffffff71;
-  filter: brightness(80%);
+  filter: brightness(60%);
   flex-grow: 1;
+  background: linear-gradient(
+    to bottom,
+    #0000003f 0%,
+    #ebe9e923 26%,
+    #00000038 100%);
 
   min-height: 15vh;
   display: flex;
   min-width: 19vw;
   justify-content: space-between;
-  border: 1px solid rgba(251, 251, 251, 0.4);
-  border-radius: 3px;
+  border: 1px solid rgb(251, 251, 251);
+  border-radius: 6px;
   margin: 1px;
 }
 
+.edit-todo-form {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  width: 100%;
+}
+
+.edit-todo-form input {
+  border: 3px solid rgb(251, 251, 251);
+  background: rgba(255, 255, 255, 0);
+}
+
 .todo-item:hover {
-  background: #fff9;
+  background: rgba(255, 255, 255, 0);
 }
 
 .todo-action {
@@ -184,8 +222,8 @@ body {
 
 /* Tabbed Styles */
 .tabbed {
-  width: 80vw;
-  border-bottom: 4px solid #000;
+  width: 84vw;
+  border-bottom: 4px solid rgb(255, 2, 2);
   transition: border 250ms ease;
 }
 .tabbed ul {
@@ -209,7 +247,7 @@ body {
   z-index: 2;
   position: relative;
   cursor: pointer;
-  color: #777;
+  color: rgb(20, 14, 14);
 
   text-transform: uppercase;
   font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
@@ -243,7 +281,7 @@ body {
 .tabbed ul li:hover:before,
 .tabbed ul li:hover:after {
   background-color: #f4f7f9;
-  color: #444;
+  color: rgb(185, 20, 20)184, 0, 0;
 }
 .tabbed ul li.active {
   z-index: 3;
@@ -268,12 +306,12 @@ body {
 
 /* Skins */
 .tabbed[class*="skin-"] ul li {
-  color: #fff;
-  text-shadow: rgba(0, 0, 0, 0.1) 0 1px;
+  color: rgba(2, 1, 1, 0.74);
+  text-shadow: rgba(97, 95, 95, 0.322) 0 2px;
 }
-
+/* _____________________________________________________________________Tab Bottom______________________________________________________________ */
 .tabbed.skin-black-glass {
-  border-bottom-color: #ffffff86;
+  border-bottom-color: rgba(255, 255, 255, 0.913);
 }
 .tabbed.skin-black-glass,
 .tabbed.skin-black-glass ul li,
@@ -284,7 +322,12 @@ body {
 .tabbed.skin-black-glass ul li,
 .tabbed.skin-black-glass ul li:before,
 .tabbed.skin-black-glass ul li:after {
-  background-color: rgba(51, 51, 51, 0.4);
+  background: linear-gradient(
+    to bottom,
+    #4b49495b 0%,
+    #ebe9e941 36%,
+    rgba(126, 125, 125, 0.404) 100%
+  );;
 }
 .tabbed.skin-black-glass ul li:hover,
 .tabbed.skin-black-glass ul li:hover:before,
@@ -298,14 +341,101 @@ body {
   background: -moz-linear-gradient(top, #949494 0%, #c7c7c7 26%, #000000 100%);
   background: -webkit-linear-gradient(
     top,
-    #949494 0%,
-    #c7c7c7 26%,
-    #b1adad 100%
+    #444242 0%,
+    #867d7d 26%,
+    #3a3232 100%
   );
   background: linear-gradient(
     to bottom,
-    #c3c3c31f 0%,
-    #ebe9e941 26%,
-    #acaaaa4d 100%
+    #3b3a3ac9 0%,
+    #5c5959 26%,
+    rgba(255, 255, 255, 0.931) 100%
   );
+}
+
+
+
+
+
+#dark-mode {
+  margin-top: 5px;
+}
+
+.switch {
+  --line: #505162;
+  --dot: #f7f8ff;
+  --circle: #9ea0be;
+  --duration: 0.3s;
+  --text: #9ea0be;
+  cursor: pointer;
+}
+.switch input {
+  display: none;
+}
+.switch input + div {
+  position: relative;
+}
+.switch input + div:before, .switch input + div:after {
+  --s: 1;
+  content: "";
+  position: absolute;
+  height: 4px;
+  top: 10px;
+  width: 24px;
+  background: var(--line);
+  -webkit-transform: scaleX(var(--s));
+          transform: scaleX(var(--s));
+  transition: -webkit-transform var(--duration) ease;
+  transition: transform var(--duration) ease;
+  transition: transform var(--duration) ease, -webkit-transform var(--duration) ease;
+}
+.switch input + div:before {
+  --s: 0;
+  left: 0;
+  -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+  border-radius: 2px 0 0 2px;
+}
+.switch input + div:after {
+  left: 28px;
+  -webkit-transform-origin: 100% 50%;
+          transform-origin: 100% 50%;
+  border-radius: 0 2px 2px 0;
+}
+.switch input + div span {
+  padding-left: 56px;
+  line-height: 24px;
+  color: var(--text);
+}
+.switch input + div span:before {
+  --x: 0;
+  --b: var(--circle);
+  --s: 4px;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 var(--s) var(--b);
+  -webkit-transform: translateX(var(--x));
+          transform: translateX(var(--x));
+  transition: box-shadow var(--duration) ease, -webkit-transform var(--duration) ease;
+  transition: box-shadow var(--duration) ease, transform var(--duration) ease;
+  transition: box-shadow var(--duration) ease, transform var(--duration) ease, -webkit-transform var(--duration) ease;
+}
+.switch input + div span:not(:empty) {
+  padding-left: 64px;
+}
+.switch input:checked + div:before {
+  --s: 1;
+}
+.switch input:checked + div:after {
+  --s: 0;
+}
+.switch input:checked + div span:before {
+  --x: 28px;
+  --s: 12px;
+  --b: var(--dot);
 }
