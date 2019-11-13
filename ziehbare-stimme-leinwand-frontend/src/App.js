@@ -13,14 +13,12 @@ const TODO_PATH = id => TODOS_PATH + "/" + id;
 class App extends React.Component {
   state = {
     resultText: "",
-    loaded: true,
+    loaded: false,
     projects: [],
     currentProject: {},
     scale: 1.0,
     left: 0
   };
-
- 
 
   didLoad = () => {
     this.setState({ loaded: true });
