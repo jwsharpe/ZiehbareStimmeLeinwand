@@ -64,11 +64,21 @@ const TodoContainer = props => {
 
   return (
     <div className="todo-big-container">
-      <form className="todo-form" onSubmit={handleForm}>
-        <input id="title" name="title" placeholder="title" />
-        <input id="content" name="content" placeholder="content" />
-        <input id="submit" name="submit" value="add todo" type="submit" />
-      </form>
+      <div className="todo-form">
+        <form  onSubmit={handleForm}>
+          <input id="title" name="title" placeholder="title" />
+          <input id="content" name="content" placeholder="content" />
+          <input id="submit" name="submit" value="add todo" type="submit" />
+        </form>
+        <div id="dark-mode">
+            <label className="switch">
+                <input onClick={props.handleDarkMode} type="checkbox" />
+                <div>
+                    <span></span>
+                </div>
+            </label>
+        </div>
+      </div>
       <div className="todo-container">
       {renderTodos()}
       </div>
