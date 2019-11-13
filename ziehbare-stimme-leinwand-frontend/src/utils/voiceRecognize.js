@@ -24,7 +24,6 @@ export async function voiceRecognize() {
 
       if (this.state.resultText !== "") {
         this.props.setVoiceCommand(this.state.resultText);
-        console.log(this.props.voiceCommand);
       }
 
       if (this.state.resultText === "up") {
