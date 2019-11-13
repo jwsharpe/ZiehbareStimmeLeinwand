@@ -16,7 +16,6 @@ class Index extends React.Component {
 
     setVoiceCommand = (resultText) => {
     this.setState({voiceCommand: resultText})
-    console.log(this.state.voiceCommand)
   }
 
   handleDarkMode = () => {
