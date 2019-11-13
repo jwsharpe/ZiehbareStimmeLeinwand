@@ -62,13 +62,15 @@ const TodoContainer = props => {
   };
 
   return (
-    <div className="todo-container">
+    <div className="todo-big-container">
       <form className="todo-form" onSubmit={handleForm}>
         <input id="title" name="title" placeholder="title" />
         <input id="content" name="content" placeholder="content" />
         <input id="submit" name="submit" value="add todo" type="submit" />
       </form>
+      <div className="todo-container">
       {renderTodos()}
+      </div>
     </div>
   );
 };

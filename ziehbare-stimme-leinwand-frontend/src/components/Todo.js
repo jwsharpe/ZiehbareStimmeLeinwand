@@ -51,8 +51,8 @@ export class Todo extends Component {
         )}
 
         <div className="todo-action">
-          <button onClick={this.handleEdit}>e</button>
-          <button onClick={this.handleDelete}>x</button>
+          <button className="delete-button" onClick={this.handleDelete}>x</button>
+          <button className="edit-button" onClick={this.handleEdit}>edit</button>
         </div>
       </div>
     );

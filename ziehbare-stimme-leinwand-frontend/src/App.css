@@ -9,7 +9,7 @@ body {
   align-items: flex-start;
 }
 .App {
-  margin-top: 80px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,6 +32,11 @@ body {
   z-index: -1;
 }
 
+.todo-big-container {
+  max-height: 80vh;
+  max-width: 80vw;
+}
+
 .todo-container {
   max-height: 80vh;
   max-width: 80vw;
@@ -50,12 +55,22 @@ body {
 
 .todo-form input {
   border: none;
-  font-size: 2rem;
+  font-size: 1rem;
   background: #fff5;
   margin: 8px;
   color: #000f00;
   padding: 8px;
   border-radius: 8px;
+}
+
+.delete-button {
+  background: rgba(255, 255, 255, 0);
+  color: white
+}
+
+.edit-button {
+  background: rgba(255, 255, 255, 0.048);
+  color: white;
 }
 
 .todo-form #title {
@@ -68,10 +83,10 @@ body {
 .todo-form #submit {
   background: #fff9;
   color: black;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.109);
   cursor: pointer;
   border-radius: 5px;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .todo-form #submit:hover {
@@ -114,7 +129,7 @@ body {
 }
 
 .todo-action button {
-  width: 25px;
+  width: 50px;
   height: 25px;
   font-size: 1rem;
   font-weight: bold;
@@ -124,7 +139,7 @@ body {
 }
 
 .todo-action button:hover {
-  background: red;
+  background: rgba(102, 102, 102, 0.103);
   color: white;
 }
 
