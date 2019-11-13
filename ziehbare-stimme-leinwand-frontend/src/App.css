@@ -142,6 +142,7 @@ h5 {
     #00000038 100%);
 
   min-height: 15vh;
+  min-height: 15vh;
   display: flex;
   min-width: 19vw;
   justify-content: space-between;
