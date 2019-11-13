@@ -153,6 +153,7 @@ class App extends React.Component {
               didLoad={this.didLoad}
             />
             <TodoContainer
+              handleDarkMode={this.props.handleDarkMode}
               darkMode={this.props.darkMode}
               currentProject={currentProject}
               setTodos={this.setTodos}

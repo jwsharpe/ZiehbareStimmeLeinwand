@@ -50,6 +50,15 @@ h5 {
   z-index: -1;
 }
 
+.delete-button {
+  background: rgba(255, 255, 255, 0);
+  color: white
+}
+.edit-button {
+  background: rgba(255, 255, 255, 0.048);
+  color: white;
+}
+
 .todo-big-container {
   max-height: 80vh;
   max-width: 85vw;
@@ -69,11 +78,13 @@ h5 {
   width: 85vw;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  /* margin-right: 10px ; */
   
 }
 
 .todo-form input {
+  /* display: contents; */
   border: none;
   font-size: 1rem;
   background: rgba(255, 255, 255, 0.877);
@@ -81,16 +92,11 @@ h5 {
   color: #000f00;
   padding: 8px;
   border-radius: 8px;
+  /* width: 150px; */
 }
 
-.delete-button {
-  background: rgba(255, 255, 255, 0);
-  color: white
-}
-
-.edit-button {
-  background: rgba(255, 255, 255, 0.048);
-  color: white;
+#dark-mode {
+  padding: 8px;
 }
 
 .todo-form #title {
@@ -362,9 +368,7 @@ h5 {
 
 
 
-#dark-mode {
-  margin-top: 5px;
-}
+
 
 .switch {
   --line: #505162;
