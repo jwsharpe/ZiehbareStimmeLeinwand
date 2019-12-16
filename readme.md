@@ -5,7 +5,7 @@
 **Ziehbare Stimme Leinwand** wants to be extravagant. \
 **Ziehbare Stimme Leinwand** wants to be extraordinary.\
 **Ziehbare Stimme Leinwand** wants to be extra.\
-**Ziehbare Stimme Leinwnd's** demo can be found [here](https://drive.google.com/open?id=1zGXHJ7kkJlfCKi5haHs9h148CdFBEWEK).
+**Ziehbare Stimme Leinwand's** demo can be found [here](https://drive.google.com/open?id=1zGXHJ7kkJlfCKi5haHs9h148CdFBEWEK).
 
 ## Ziehbare Stimme Leinwand Today
 
