@@ -11,13 +11,20 @@ export async function voiceRecognize() {
   recognizer.listen(
     result => {
       let i = result.scores.indexOf(Math.max(...result.scores));
+
+      console.log(labels[i]);
       if (!this.state.loaded && labels[i] === "go") {
         this.setState({ loaded: true });
         this.didLoad();
       }
 
-      if (Math.max(...result.scores) > 0.95) {
+      if (Math.max(...result.scores) > 0.55) {
         this.setState({ resultText: labels[i] });
+        anime({
+          targets: ".App",
+          duration: 100,
+          rotate: "1deg"
+        });
       } else {
         this.setState({ resultText: this.state.text });
       }
@@ -26,33 +33,33 @@ export async function voiceRecognize() {
         this.props.setVoiceCommand(this.state.resultText);
       }
 
-      if (this.state.resultText === "up") {
-        this.setState(
-          prev => ({ scale: +prev.scale + 0.1 }),
-          () => {
-            anime({
-              targets: ".App",
-              duration: 1000,
-              scale: this.state.scale
-            });
-          }
-        );
-      }
-      if (this.state.resultText === "down") {
-        this.setState(
-          prev => ({ scale: +prev.scale - 0.1 }),
-          () => {
-            anime({
-              targets: ".App",
-              duration: 1000,
-              scale: this.state.scale
-            });
-          }
-        );
-      }
+      // if (this.state.resultText === "up") {
+      //   this.setState(
+      //     prev => ({ scale: +prev.scale + 0.1 }),
+      //     () => {
+      //       anime({
+      //         targets: ".App",
+      //         duration: 1000,
+      //         scale: this.state.scale
+      //       });
+      //     }
+      //   );
+      // }
+      // if (this.state.resultText === "down") {
+      //   this.setState(
+      //     prev => ({ scale: +prev.scale - 0.1 }),
+      //     () => {
+      //       anime({
+      //         targets: ".App",
+      //         duration: 1000,
+      //         scale: this.state.scale
+      //       });
+      //     }
+      //   );
+      // }
       if (this.state.resultText === "left") {
         this.setState(
-          prev => ({ left: +prev.left - 50 }),
+          prev => ({ left: +prev.left - parseInt(Math.random() * 400) + 150 }),
           () => {
             anime({
               targets: ".App",
@@ -64,7 +71,7 @@ export async function voiceRecognize() {
       }
       if (this.state.resultText === "right") {
         this.setState(
-          prev => ({ left: +prev.left + 50 }),
+          prev => ({ left: +prev.left + parseInt(Math.random() * 400) + 150 }),
           () => {
             anime({
               targets: ".App",

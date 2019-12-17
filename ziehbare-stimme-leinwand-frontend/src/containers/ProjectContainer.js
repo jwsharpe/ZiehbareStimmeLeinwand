@@ -19,7 +19,7 @@ export class ProjectContainer extends Component {
       .then(e => e.json())
       .then(projects => {
         this.props.setProjects(projects);
-        this.props.setCurrentProject(projects[0]);
+        this.props.setCurrentProject(projects[projects.length - 1]);
         // this.props.didLoad();
       });
     // this.voiceRecognize();
@@ -102,10 +102,15 @@ export class ProjectContainer extends Component {
   };
 
   addProjectTab() {
-    const h5StyleDark = {color: 'white'}
-    const h5StyleLight = {color: 'black'}
+    const h5StyleDark = { color: "white" };
+    const h5StyleLight = { color: "black" };
     return (
-      <li style={this.props.darkMode ? h5StyleDark : h5StyleLight} className="add-tab" onMouseEnter={this.displayForm} onMouseLeave={this.displayForm}>
+      <li
+        style={this.props.darkMode ? h5StyleDark : h5StyleLight}
+        className="add-tab"
+        onMouseEnter={this.displayForm}
+        onMouseLeave={this.displayForm}
+      >
         {" "}
         {this.state.addProjectForm ? this.showForm() : <h1>+</h1>}{" "}
       </li>
